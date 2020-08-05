@@ -69,7 +69,6 @@
 |postage|integer|null: false, default: 0|
 |post_code|integer(7)|null: false|
 |delivery_days|integer|null: false|
-|item_img_id|references|null: false, foreign_key: true|
 |created_at|datetime|null: false|
 |user_id|references|null: false, foreign_key: true|
 
@@ -86,7 +85,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|-|
+|name|string|null: false, unique: true|
 
 ### Association
 - has_many :items

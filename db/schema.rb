@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(version: 2020_08_05_080039) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+ActiveRecord::Schema.define(version: 2020_08_05_043534) do
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.text "detail"
+    t.integer "price"
+    t.string "item_condition"
+    t.integer "postage"
+    t.integer "post_code"
+    t.integer "delivery_days"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
