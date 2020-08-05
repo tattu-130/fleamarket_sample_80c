@@ -76,6 +76,16 @@
     }
   }
 }
+.FormField--flex {
+  display: flex;
+}
+
+.year, .month, .day {
+  padding: 10px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  height: 40px;
+}
 
 .Button {
   display: inline-block;

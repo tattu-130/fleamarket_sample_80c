@@ -27,5 +27,23 @@
           = f.label :password_confirmation
         .FormField__input--normal
           = f.password_field :password_confirmation, autocomplete: "off"
+      .FormField
+        .FormField__label--normal
+          = f.label "お名前（全角）"
+        .FormField__input--normal.FormField--flex
+          = f.text_field :family_name, placeholder: "例)山田"
+          = f.text_field :first_name, placeholder: "例)彩"
+      .FormField
+        .FormField__label--normal
+          = f.label "お名前カナ（全角）"
+        .FormField__input--normal.FormField--flex
+          = f.text_field :family_name_kana, placeholder: "例)ヤマダ"
+          = f.text_field :first_name_kana, placeholder: "例)アヤ"
+      .FormField
+        .FormField__label--normal
+          = f.label "生年月日"
+        .FormField__input--normal
+          != sprintf(f.date_select(:birth_year, prefix:'birthday', with_css_classes:'XXXXX', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1960, date_separator:'%s'),'年','月')+'日'
+                
       .actions
         = f.submit "Create Account", class: 'Button UserButton'
