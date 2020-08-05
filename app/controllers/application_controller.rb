@@ -19,7 +19,13 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
-  end
+    # paramsにbirthdayを年月日に分けて追加
+    birthday = params[:birthday]
+    params["user"]["birth_year"] = birthday["birth_year(1i)"]
+    params["user"]["birth_month"] = birthday["birth_year(2i)"]
+    params["user"]["birth_day"] = birthday["birth_year(3i)"]
 
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_kana, :family_name_kana, :birth_year, :birth_month, :birth_day])
+  end
+  
 end
