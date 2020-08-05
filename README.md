@@ -21,7 +21,8 @@
 - has_many :items
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
-
+- belongs_to :sending_destinations
+- belongs_to :credit_cards
 
 ## sending_destinationsテーブル
 
@@ -36,7 +37,7 @@
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string|-|
-|phone_number|integer|-|
+|phone_number|string|-|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
