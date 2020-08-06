@@ -25,12 +25,13 @@ class ApplicationController < ActionController::Base
     # paramsにbirthdayを年月日に分けて追加
     if params[:birthday].present?
       birthday = params[:birthday]
-      params["user"]["birth_year"] = birthday["birth_year(1i)"]
-      params["user"]["birth_month"] = birthday["birth_year(2i)"]
-      params["user"]["birth_day"] = birthday["birth_year(3i)"]
+      params["user"]["birth_year"] = birthday["birthday(1i)"]
+      params["user"]["birth_month"] = birthday["birthday(2i)"]
+      params["user"]["birth_day"] = birthday["birthday(3i)"]
     end
-    
+    # binding.pry
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :family_name, :first_name_kana, :family_name_kana, :birth_year, :birth_month, :birth_day])
+
   end
   
 end

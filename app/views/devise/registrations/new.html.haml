@@ -4,8 +4,9 @@
     %h5 新規アカウントの作成
     = render "devise/shared/links"
   .AccountPage__form
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|      
+      -# = devise_error_messages!
+      = render "devise/shared/error_messages", resource: @user
       .FormField
         .FormField__label--normal
           = f.label :nickname
@@ -43,7 +44,7 @@
         .FormField__label--normal
           = f.label "生年月日"
         .FormField__input--normal
-          != sprintf(f.date_select(:birth_year, prefix:'birthday', with_css_classes:'XXXXX', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1960, date_separator:'%s'),'年','月')+'日'
+          != sprintf(f.date_select(:birthday, prefix:'birthday', with_css_classes:'XXXXX', prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:1960, date_separator:'%s'),'年','月')+'日'
                 
       .actions
         = f.submit "Create Account", class: 'Button UserButton'
