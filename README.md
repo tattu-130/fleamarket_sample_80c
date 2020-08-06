@@ -11,9 +11,10 @@
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
 |family_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|birthday|string|
+|birth_year|string|null: false|
+|birth_month|string|null: false|
+|birth_day|string|null: false|
 |introduction|text|-|
 |user_image|string|-|
 
@@ -21,10 +22,10 @@
 - has_many :items
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
-- belongs_to :sending_destinations
+- belongs_to :destinations
 - belongs_to :credit_cards
 
-## sending_destinationsテーブル
+## destinationsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -32,7 +33,7 @@
 |destination_family_name|string|null: false|
 |destination_first_name_kana|string|null: false|
 |destination_family_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
+|post_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
