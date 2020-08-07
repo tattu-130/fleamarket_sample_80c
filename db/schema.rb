@@ -29,14 +29,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_101023) do
     t.index ["user_id"], name: "index_destinations_on_user_id"
   end
 
-  create_table "item_imgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url"
-    t.bigint "item_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["item_id"], name: "index_item_imgs_on_item_id"
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "detail"
@@ -73,5 +65,4 @@ ActiveRecord::Schema.define(version: 2020_08_06_101023) do
   end
 
   add_foreign_key "destinations", "users"
-  add_foreign_key "item_imgs", "items"
 end
