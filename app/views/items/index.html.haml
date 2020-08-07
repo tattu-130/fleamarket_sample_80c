@@ -9,7 +9,8 @@
 .content
   - @items.each do |item|
     .content__box
-      =image_tag item.item_imgs[0].url, size: "200x250", class: "class__image"
-      .content__price
-        = item.price
-        = item.name
+      =link_to item_path(item.id) do
+        =image_tag item.item_imgs[0].url, size: "200x250", class: "class__image"
+        .content__price
+          = item.price
+          = item.name
