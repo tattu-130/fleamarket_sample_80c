@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
-
+  
   has_many :items
-  belongs_to :user
+  belongs_to :destinations, optional: true
 end
