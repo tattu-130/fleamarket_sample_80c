@@ -44,6 +44,27 @@
     color: black;
   }
 }
+.main {
+  position: relative;
+  &__picture {
+    width: 100vw;
+    height: 560px;
+  }
+  &__word {
+    color: white;
+    text-shadow: 1px 1px 5px gray;
+    position: absolute;
+     top: 200px;
+     left: 80px;
+  }
+  &__subject {
+    font-size: 60px;
+    margin-bottom: 10px;
+  }
+  &__subword {
+    font-size: 17px;
+  }
+}
 
 
 
