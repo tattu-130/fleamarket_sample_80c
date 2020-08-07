@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @items = Item.all
   end
 
   def new
@@ -15,6 +16,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.destroy
   end
 
   def show

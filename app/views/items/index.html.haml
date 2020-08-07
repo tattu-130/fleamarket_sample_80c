@@ -1,0 +1,7 @@
+.contents.row
+  - @items.each do |item|
+    .name
+      = item.name
+      .more
+        .more_list
+          = link_to '削除', item_path(item.id), method: :delete
