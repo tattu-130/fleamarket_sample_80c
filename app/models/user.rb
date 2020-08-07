@@ -15,5 +15,5 @@ class User < ApplicationRecord
   validates :birth_day, presence: true
 
   has_many :items
-  belongs_to :user
+  belongs_to :destinations, optional: true
 end
