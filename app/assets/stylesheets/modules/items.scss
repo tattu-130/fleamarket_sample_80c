@@ -1,6 +1,51 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
+.header {
+  width: 100vw;
+  height: 110px;
+  &__up {
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    margin: 15px 30px 0 190px;
+  }
+  &__field {
+    width: 57vw;
+    height: 35px;
+    padding-left: 10px;
+    margin-top: 15px;
+  }
+  &__search {
+    background-color: lightseagreen;
+    padding: 8px;
+    margin-top: 15px;
+  }
+  &__down {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__left {
+    display: flex;
+    font-size: 13px;
+    margin: 15px 0 0 190px;
+  }
+  &__category {
+    margin-right: 50px;
+  }
+  &__rigth {
+    font-size: 13px;
+    margin: 15px 215px 0 0;
+  }
+  &__button {
+    margin-left: 20px;
+    color: black;
+  }
+}
+
+
 
 .content {
   display: flex;
