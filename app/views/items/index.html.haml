@@ -16,6 +16,7 @@
       - else
         = link_to "ログイン", new_user_session_path, method: :get, class: "header__button"
         = link_to "新規会員登録", new_user_registration_path, method: :get, class: "header__button"
+
 .main
   =image_tag "material/pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
   .main__word
@@ -24,6 +25,7 @@
     .main__subword
       %p FURIMAはだれでもかんたんに出品・購入できる
       フリマアプリです
+
 .reason
   .reason__box
     .reason__title
@@ -40,27 +42,28 @@
     .reason__number__three
       3
   .reason__under
-    .reason__explanation.reason__explanation__one
+    .reason__explanation__one
       %span.reason__important.reason__important__one
         ３分
       %b.reason__text 
         ですぐに出品
       .reason__subtext 
         スマホで入力するだけで簡単に出品できる！
-    .reason__explanation.reason__explanation__two
+    .reason__explanation__two
       %span.reason__important.reason__important__two 
         シンプル
       %b.reason__text 
         で使いやすい
       .reason__subtext 
         めんどくさい入力は必要なく、検索も購入もスムーズ！
-    .reason__explanation.reason__explanation__three
+    .reason__explanation__three
       %b.reason__text.reason__text__three 
         手数料
       %span.reason__important 
         業界最安
       .reason__subtext 
         最大3%でお得に出品&購入！
+
 .middle
   =image_tag "material/pict/bg-topMiddleDl-pict.jpg", class: "middle__picture" 
   .middle__word
@@ -70,6 +73,33 @@
       %p FURIMAは、フリマアプリで最も人気。
       %p 出品・購入回数も業界最多です！
       ほしかったあの商品に出会えるかもしれません。
+
+.feature
+  .feature__box
+    .feature__title
+      %b FURIMAの特徴
+      .feature__line 
+  .feature__select
+    =image_tag "material/icon/icon-01.png", size: "275x320" , class: "feature__one"
+    =image_tag "material/icon/icon-03.png", size: "275x320" 
+    =image_tag "material/icon/icon-04.png", size: "275x320" , class: "feature__three"
+  .feature__under
+    .feature__explanation__one
+      %b.feature__text.feature__text__one
+        簡単に売り買いできる
+      .feature__subtext 
+        スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+    .feature__explanation__two
+      %b.feature__text.feature__text__two
+        売上金は即日振込みに対応
+      .feature__subtext 
+        午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+    .feature__explanation__three
+      %b.feature__text.feature__text__three 
+        様々な支払いに対応
+      .feature__subtext 
+        お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
 
 
 .content

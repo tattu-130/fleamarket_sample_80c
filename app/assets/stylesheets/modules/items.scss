@@ -69,7 +69,7 @@
 }
 
 .reason {
-  .reason__box {
+  &__box {
   display: flex;
   justify-content: center;
   }
@@ -129,6 +129,7 @@
   &__under {
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
   }
   &__important {
     color: lightseagreen;
@@ -142,9 +143,6 @@
     font-size: 17px;
     width: 300px;
     margin: 20px 0 75px 0;
-  }
-  &__explanation {
-    margin-top: 20px;
   }
   &__explanation__one {
     margin-left: 200px;
@@ -182,6 +180,63 @@
     font-size: 17px;
   }
 }
+
+.feature {
+  &__box {
+  display: flex;
+  justify-content: center;
+  }
+  &__title {
+    font-size: 25px;
+    margin: 65px 0 40px 0;
+  }
+  &__line {
+    width: 70px;
+    border-bottom: 5px solid lightseagreen;
+    margin: 8px 0 0 60px;
+  }
+  &__select {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+  }
+  &__one {
+    margin-left: 180px;
+  }
+  &__three {
+    margin-right: 180px;
+  }
+  &__under {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  &__text {
+    font-size: 18px;
+  }
+  &__subtext {
+    font-size: 15px;
+    width: 275px;
+    margin-top: 10px;
+  }
+  &__explanation__one {
+    margin-left: 220px;
+  }
+  &__text__one {
+    padding-left: 45px;
+  }
+  &__text__two {
+    padding-left: 30px;
+  }
+  &__explanation__three {
+    margin-right: 218px;
+  }
+  &__text__three {
+    padding-left: 55px;
+  }
+}
+
+
 
 .content {
   display: flex;
