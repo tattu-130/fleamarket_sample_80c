@@ -5,9 +5,11 @@
     =image_tag "material/icon/icon-search 1.png", size: "35x35", class: "header__search"
   .header__down
     .header__left
-      .header__category カテゴリー
-      .header__brand ブランド
-    .header__rigth
+      .header__category 
+        カテゴリー
+      .header__brand 
+        ブランド
+    .header__right
       - if user_signed_in?
         = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: "header__button"
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__button"
@@ -22,7 +24,53 @@
     .main__subword
       %p FURIMAはだれでもかんたんに出品・購入できる
       フリマアプリです
-      
+.reason
+  .reason__box
+    .reason__title
+      %b FURIMAが選ばれる3つの理由
+      .reason__line 
+  .reason__select
+    =image_tag "material/pict/pict-reason-01.jpg", size: "300x320" , class: "reason__one"
+    .reason__number__one
+      1
+    =image_tag "material/pict/pict-reason-02.jpg", size: "300x320" , class: "reason__two"
+    .reason__number__two
+      2
+    =image_tag "material/pict/pict-reason-03.jpg", size: "300x320" , class: "reason__three"
+    .reason__number__three
+      3
+  .reason__under
+    .reason__explanation.reason__explanation__one
+      %span.reason__important.reason__important__one
+        ３分
+      %b.reason__text 
+        ですぐに出品
+      .reason__subtext 
+        スマホで入力するだけで簡単に出品できる！
+    .reason__explanation.reason__explanation__two
+      %span.reason__important.reason__important__two 
+        シンプル
+      %b.reason__text 
+        で使いやすい
+      .reason__subtext 
+        めんどくさい入力は必要なく、検索も購入もスムーズ！
+    .reason__explanation.reason__explanation__three
+      %b.reason__text.reason__text__three 
+        手数料
+      %span.reason__important 
+        業界最安
+      .reason__subtext 
+        最大3%でお得に出品&購入！
+.middle
+  =image_tag "material/pict/bg-topMiddleDl-pict.jpg", class: "middle__picture" 
+  .middle__word
+    .middle__subject
+      会員数日本一位
+    .middle__subword
+      %p FURIMAは、フリマアプリで最も人気。
+      %p 出品・購入回数も業界最多です！
+      ほしかったあの商品に出会えるかもしれません。
+
 
 .content
   - @items.each do |item|
@@ -32,14 +80,3 @@
         = item.price
         = item.name
 
-
--# 異常なく動くことが確認できたら消して欲しい(ユーザーログイン機能)
--# - if user_signed_in?
--#   = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: 'Button'
--#   = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
--# - else
--#   = link_to "ログイン", new_user_session_path, method: :get, class: 'Button'
--#   = link_to "新規登録", new_user_registration_path, method: :get, class: 'Button'
-
-
-  
