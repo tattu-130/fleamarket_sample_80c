@@ -1,5 +1,15 @@
 %h1
   = "#{@nickname}のページです"
 
-= link_to "発送元・お届先情報", "#", method: :get, class: 'Button'
+- unless @user_des.present?
+  = link_to "配送先情報の登録", new_user_destination_path(current_user.id), method: :get, class: 'Button'
 = link_to "トップへ戻る", "/", method: :get, class: 'Button'
+
+- if @user_des.present?
+  = link_to '配送先の削除', user_destination_path(@user_des.user_id, @user_des.id), method: :delete
+  %h2 登録された配送先情報一覧
+  %p= "#{@user_des.destination_family_name}#{@user_des.destination_first_name}"
+  %p= "#{@user_des.destination_family_name_kana}#{@user_des.destination_first_name_kana}"
+  %p= "#{@user_des.post_code}"
+  %p= "#{@user_des.prefecture}#{@user_des.city}#{@user_des.address}#{@user_des.building_name}"
+  %p= "#{@user_des.phone_number}"
