@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to items_path
     else
+      render :show
       puts "削除に失敗しました"
     end
   end
