@@ -25,6 +25,8 @@ class ItemsController < ApplicationController
       render :show
       puts "削除に失敗しました"
     end
+#     item = Item.find(params[:id])
+#     item.destroy
   end
 
   def show

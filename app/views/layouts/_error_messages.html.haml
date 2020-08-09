@@ -1,0 +1,5 @@
+- if @destination.errors.any? 
+  .alert
+    %ul
+      - @destination.errors.full_messages.each do |message| 
+        %li= message
