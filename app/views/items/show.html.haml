@@ -1,0 +1,24 @@
+%h1.header ユーザー認証機能のテスト用
+- if user_signed_in?
+  = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: 'Button'
+  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
+- else
+  = link_to "ログイン", new_user_session_path, method: :get, class: 'Button'
+  = link_to "新規登録", new_user_registration_path, method: :get, class: 'Button'
+
+.wrapper
+  .container
+    %h1.item-name
+      = @item.name 
+    .item-buyBtn-box
+      -if user_signed_in? && current_user.id == @item.user_id
+        %span
+          = link_to "編集する", edit_item_path(@item.id)
+        %span
+          = link_to "削除する", item_path(@item.id), method: :delete
+      - elsif user_signed_in?
+        %span
+          = link_to "購入画面へ進む", '#'
+      - else 
+        %span
+          = link_to "ログインする", items_path
