@@ -1,8 +1,8 @@
 .header
   .header__up
-    =image_tag "material/logo/logo.png", size: "150x40", class: "header__logo"
+    =image_tag "logo/logo.png", size: "150x40", class: "header__logo"
     %input.login-input-text{placeholder: "キーワードから探す", class: "header__field"}
-    =image_tag "material/icon/icon-search 1.png", size: "35x35", class: "header__search"
+    =image_tag "icon/icon-search 1.png", size: "35x35", class: "header__search"
   .header__down
     .header__left
       .header__category 
@@ -18,7 +18,7 @@
         = link_to "新規会員登録", new_user_registration_path, method: :get, class: "header__button"
 
 .main
-  =image_tag "material/pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
+  =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
   .main__word
     .main__subject
       人生を変えるフリマアプリ
@@ -32,13 +32,13 @@
       %b FURIMAが選ばれる3つの理由
       .reason__line 
   .reason__select
-    =image_tag "material/pict/pict-reason-01.jpg", size: "300x320" , class: "reason__one"
+    =image_tag "pict/pict-reason-01.jpg", size: "300x320" , class: "reason__one"
     .reason__number__one
       1
-    =image_tag "material/pict/pict-reason-02.jpg", size: "300x320" , class: "reason__two"
+    =image_tag "pict/pict-reason-02.jpg", size: "300x320" , class: "reason__two"
     .reason__number__two
       2
-    =image_tag "material/pict/pict-reason-03.jpg", size: "300x320" , class: "reason__three"
+    =image_tag "pict/pict-reason-03.jpg", size: "300x320" , class: "reason__three"
     .reason__number__three
       3
   .reason__under
@@ -65,7 +65,7 @@
         最大3%でお得に出品&購入！
 
 .middle
-  =image_tag "material/pict/bg-topMiddleDl-pict.jpg", class: "middle__picture" 
+  =image_tag "pict/bg-topMiddleDl-pict.jpg", class: "middle__picture" 
   .middle__word
     .middle__subject
       会員数日本一位
@@ -80,9 +80,9 @@
       %b FURIMAの特徴
       .feature__line 
   .feature__select
-    =image_tag "material/icon/icon-01.png", size: "275x320" , class: "feature__one"
-    =image_tag "material/icon/icon-03.png", size: "275x320" 
-    =image_tag "material/icon/icon-04.png", size: "275x320" , class: "feature__three"
+    =image_tag "icon/icon-01.png", size: "275x320" , class: "feature__one"
+    =image_tag "icon/icon-03.png", size: "275x320" 
+    =image_tag "icon/icon-04.png", size: "275x320" , class: "feature__three"
   .feature__under
     .feature__explanation__one
       %b.feature__text.feature__text__one
@@ -100,13 +100,29 @@
       .feature__subtext 
         お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
-
-
 .content
-  - @items.each do |item|
-    .content__box
-      =image_tag item.item_imgs[0].url, size: "200x250", class: "class__image"
-      .content__price
-        = item.price
-        = item.name
+  .content__title
+    ピックアップカテゴリー
+  .content__subtitle 
+    新規投稿商品
+  .content__list
+    - @items.each do |item|
+      .content__box
+        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__image"
+        .content__name
+          = item.name
+        .content__price
+          = "#{item.price}円（税込）"
+  .content__title
+    ピックアップカテゴリー
+  .content__subtitle 
+    新規投稿商品
+  .content__list
+    - @items.each do |item|
+      .content__box
+        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__image"
+        .content__name
+          = item.name
+        .content__price
+          = "#{item.price}円（税込）"
 
