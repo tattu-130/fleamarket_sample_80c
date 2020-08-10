@@ -113,6 +113,7 @@
           = item.name
         .content__price
           = "#{item.price}円（税込）"
+  -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する
   .content__title
     ピックアップカテゴリー
   .content__subtitle 
@@ -125,4 +126,14 @@
           = item.name
         .content__price
           = "#{item.price}円（税込）"
+
+.bottom
+  =image_tag "pict/bg-appBanner-pict.jpg", class: "bottom__picture" 
+  .bottom__word
+    .bottom__subject
+      だれでもかんたん、人生を変えるフリマアプリ
+    .bottom__subword
+      今すぐ無料ダウンロード！
+
+
 

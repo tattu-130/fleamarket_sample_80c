@@ -274,4 +274,27 @@
   }
 }
 
+.bottom {
+  position: relative;
+  &__picture {
+    width: 100vw;
+    height: 350px;
+  }
+  &__word {
+    color: white;
+    text-shadow: 1px 1px 5px gray;
+    position: absolute;
+     top: 100px;
+     left: 460px;
+  }
+  &__subject {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__subword {
+    font-size: 35px;
+    padding-left: 55px;
+  }
+}
 
