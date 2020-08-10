@@ -1,37 +1,61 @@
-.AccountPage
-  .AccountPage__title
-    %h2 住所の登録
-    %h5 配送先住所を登録する
-    = link_to "トップへ戻る", "/", method: :get, class: 'Button'
-  .AccountPage__form
-    = form_with url: user_destinations_path(current_user.id), method: 'post', local: true do |f|
-      = render 'layouts/error_messages'
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :destination_family_name, placeholder: "姓（全角）"
-          = f.text_field :destination_first_name, placeholder: "名（全角）"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :destination_family_name_kana, placeholder: "姓カナ（全角）"
-          = f.text_field :destination_first_name_kana, placeholder: "名カナ（全角）"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :post_code, placeholder: "郵便番号（要ハイフン）"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :prefecture, placeholder: "都道府県"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :city, placeholder: "市区町村"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :address, placeholder: "番地"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :building_name, placeholder: "建物名（任意）"
-      .FormField
-        .FormField__input--normal.FormField--flex
-          = f.text_field :phone_number, placeholder: "電話番号（任意）"
-                
-      .actions
-        = f.submit "登録する", class: 'Button UserButton'
+.AccountContainer
+  = render 'devise/shared/header'
+  .AccountPage
+    .AccountPage__title
+      %h2 住所の登録
+    .AccountPage__form
+      = form_with url: user_destinations_path(current_user.id), method: 'post', local: true do |f|
+        = render 'layouts/error_messages'
+        .FormField
+          .FormField__label--normal
+            = f.label "お名前（全角）"
+            %span.requiredLabel 必須
+          .FormField__input--normal.FormField--flex
+            = f.text_field :destination_family_name, placeholder: "姓（全角）"
+            = f.text_field :destination_first_name, placeholder: "名（全角）"
+        .FormField
+          .FormField__label--normal
+            = f.label "お名前カナ（全角）"
+            %span.requiredLabel 必須
+          .FormField__input--normal.FormField--flex
+            = f.text_field :destination_family_name_kana, placeholder: "姓カナ（全角）"
+            = f.text_field :destination_first_name_kana, placeholder: "名カナ（全角）"
+        .FormField
+          .FormField__label--normal
+            = f.label "郵便番号"
+            %span.requiredLabel 必須
+          .FormField__input--normal.FormField--flex
+            = f.text_field :post_code, placeholder: "例）100-9999"
+        .FormField
+          .FormField__label--normal
+            = f.label "都道府県"
+            %span.requiredLabel 必須
+          .FormField__input--normal.FormField--flex
+            = f.text_field :prefecture, placeholder: "例）東京都"
+        .FormField
+          .FormField__label--normal
+            = f.label "市区町村"
+            %span.requiredLabel 必須
+          .FormField__input--normal.FormField--flex
+            = f.text_field :city, placeholder: "例）中央区丸の内"
+        .FormField
+          .FormField__label--normal
+            = f.label "番地"
+            %span.requiredLabel 必須
+          .FormField__input--normal.FormField--flex
+            = f.text_field :address, placeholder: "1-2-3"
+        .FormField
+          .FormField__label--normal
+            = f.label "建物名（任意）"
+          .FormField__input--normal.FormField--flex
+            = f.text_field :building_name, placeholder: "例）新東京ビル"
+        .FormField
+          .FormField__label--normal
+            = f.label "電話番号（任意）"
+          .FormField__input--normal.FormField--flex
+            = f.text_field :phone_number, placeholder: "03-1111-9999"
+                  
+        .actions
+          = f.submit "登録する", class: 'Button UserButton'
+          = link_to "トップへ戻る", "/", method: :get, class: 'Button'
+  = render "devise/shared/footer"
