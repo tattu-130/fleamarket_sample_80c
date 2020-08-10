@@ -57,5 +57,5 @@
                   
         .actions
           = f.submit "登録する", class: 'Button UserButton'
-          = link_to "トップへ戻る", "/", method: :get, class: 'Button'
+          = link_to "トップへ戻る", root_path, method: :get, class: 'Button'
   = render "devise/shared/footer"
