@@ -1,21 +1,4 @@
-.header
-  .header__up
-    =image_tag "logo/logo.png", size: "150x40", class: "header__up__logo"
-    %input.login-input-text{placeholder: "キーワードから探す", class: "header__up__field"}
-    =image_tag "icon/icon-search 1.png", size: "35x35", class: "header__up__search"
-  .header__down
-    .header__down__left
-      .header__down__category 
-        カテゴリー
-      .header__down__brand 
-        ブランド
-    .header__down__right
-      - if user_signed_in?
-        = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: "header__down__button"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__down__button"
-      - else
-        = link_to "ログイン", new_user_session_path, method: :get, class: "header__down__button"
-        = link_to "新規会員登録", new_user_registration_path, method: :get, class: "header__down__button"
+= render partial: "render/header"
 
 .main
   =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
@@ -32,13 +15,13 @@
       %b FURIMAが選ばれる3つの理由
       .reason__box__line 
   .reason__select
-    =image_tag "pict/pict-reason-01.jpg", size: "300x320" , class: "reason__select__one"
+    =image_tag "pict/pict-reason-01.jpg" , class: "reason__select__one"
     .reason__select__number.reason__select__number__one
       1
-    =image_tag "pict/pict-reason-02.jpg", size: "300x320" 
+    =image_tag "pict/pict-reason-02.jpg", class: "reason__select__two"
     .reason__select__number.reason__select__number__two
       2
-    =image_tag "pict/pict-reason-03.jpg", size: "300x320" , class: "reason__select__three"
+    =image_tag "pict/pict-reason-03.jpg", class: "reason__select__three"
     .reason__select__number.reason__select__number__three
       3
   .reason__under
@@ -80,9 +63,9 @@
       %b FURIMAの特徴
       .feature__box__line 
   .feature__select
-    =image_tag "icon/icon-01.png", size: "275x320" , class: "feature__select__one"
-    =image_tag "icon/icon-03.png", size: "275x320" 
-    =image_tag "icon/icon-04.png", size: "275x320" , class: "feature__select__three"
+    =image_tag "icon/icon-01.png", class: "feature__select__one"
+    =image_tag "icon/icon-03.png", class: "feature__select__two"
+    =image_tag "icon/icon-04.png", class: "feature__select__three"
   .feature__under
     .feature__under__one
       %b.feature__under__text.feature__under__text__one
@@ -135,26 +118,7 @@
     .bottom__subword
       今すぐ無料ダウンロード！
 
-.footer
-  .footer__one
-    .footer__list
-      FURIMAについて
-    =link_to "会社概要（運営会社)", "#", class: "footer__menu"
-    =link_to "プライバシーポリシー", "#", class: "footer__menu"
-    =link_to "FURIMA利用規約", "#", class: "footer__menu"
-    =link_to "ポイントに関する特約", "#", class: "footer__menu"
-  .footer__two
-    .footer__list
-      FURIMAを見る
-    =link_to "カテゴリー一覧", "#", class: "footer__menu"
-    =link_to "ブランド一覧", "#", class: "footer__menu"
-    =image_tag "logo/logo-white.png", size: "150x50", class: "footer__logo"
-  .footer__three
-    .footer__list
-      ヘルプ＆ガイド
-    =link_to "FURIMAガイド", "#", class: "footer__menu"
-    =link_to "FURIMAロゴ利用ガイドライン", "#", class: "footer__menu"
-    =link_to "お知らせ", "#", class: "footer__menu"
+= render partial: "render/footer"
 
 
     

@@ -13,6 +13,7 @@
   padding-top: 15px;
   &__logo {
     margin: 0 30px 0 190px;
+    width: 140px;
   }
   &__field {
     width: 57vw;
@@ -22,6 +23,8 @@
   &__search {
     background-color: #3CCACE;
     padding: 8px;
+    width: 35px;
+    height: 35px;
   }
 }
 .header__down {
@@ -86,9 +89,14 @@
   position: relative;
   &__one {
     margin-left: 180px;
+    width: 279px;
+  }
+  &__two {
+    width: 279px;
   }
   &__three {
     margin-right: 180px;
+    width: 279px;
   }
   &__number {
     color: white;
@@ -101,15 +109,15 @@
   }
   &__number__one {
     position: absolute;
-    left: 208px;
+    left: 218px;
   }
   &__number__two {
     position: absolute;
-    left: 563px;
+    left: 573px;
   }
   &__number__three {
     position: absolute;
-    right: 447px;
+    right: 437px;
   }
 }
 .reason__under {
@@ -188,15 +196,20 @@
   position: relative;
   &__one {
     margin-left: 180px;
+    width: 15vw;
+  }
+  &__two {
+    width: 15vw;
   }
   &__three {
     margin-right: 180px;
+    width: 15vw;
   }
 }
 .feature__under {
   display: flex;
   justify-content: space-between;
-  margin: 30px 0 125px 0;
+  margin: 30px 0 100px 0;
   &__text {
     font-size: 18px;
   }
