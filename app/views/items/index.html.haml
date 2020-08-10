@@ -1,21 +1,21 @@
 .header
   .header__up
-    =image_tag "logo/logo.png", size: "150x40", class: "header__logo"
-    %input.login-input-text{placeholder: "キーワードから探す", class: "header__field"}
-    =image_tag "icon/icon-search 1.png", size: "35x35", class: "header__search"
+    =image_tag "logo/logo.png", size: "150x40", class: "header__up__logo"
+    %input.login-input-text{placeholder: "キーワードから探す", class: "header__up__field"}
+    =image_tag "icon/icon-search 1.png", size: "35x35", class: "header__up__search"
   .header__down
-    .header__left
-      .header__category 
+    .header__down__left
+      .header__down__category 
         カテゴリー
-      .header__brand 
+      .header__down__brand 
         ブランド
-    .header__right
+    .header__down__right
       - if user_signed_in?
-        = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: "header__button"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__button"
+        = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: "header__down__button"
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__down__button"
       - else
-        = link_to "ログイン", new_user_session_path, method: :get, class: "header__button"
-        = link_to "新規会員登録", new_user_registration_path, method: :get, class: "header__button"
+        = link_to "ログイン", new_user_session_path, method: :get, class: "header__down__button"
+        = link_to "新規会員登録", new_user_registration_path, method: :get, class: "header__down__button"
 
 .main
   =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
@@ -28,40 +28,40 @@
 
 .reason
   .reason__box
-    .reason__title
+    .reason__box__title
       %b FURIMAが選ばれる3つの理由
-      .reason__line 
+      .reason__box__line 
   .reason__select
-    =image_tag "pict/pict-reason-01.jpg", size: "300x320" , class: "reason__one"
-    .reason__number__one
+    =image_tag "pict/pict-reason-01.jpg", size: "300x320" , class: "reason__select__one"
+    .reason__select__number.reason__select__number__one
       1
-    =image_tag "pict/pict-reason-02.jpg", size: "300x320" , class: "reason__two"
-    .reason__number__two
+    =image_tag "pict/pict-reason-02.jpg", size: "300x320" 
+    .reason__select__number.reason__select__number__two
       2
-    =image_tag "pict/pict-reason-03.jpg", size: "300x320" , class: "reason__three"
-    .reason__number__three
+    =image_tag "pict/pict-reason-03.jpg", size: "300x320" , class: "reason__select__three"
+    .reason__select__number.reason__select__number__three
       3
   .reason__under
-    .reason__explanation__one
-      %span.reason__important.reason__important__one
+    .reason__under__one
+      %span.reason__under__important.reason__under__important__one
         ３分
-      %b.reason__text 
+      %b.reason__under__text 
         ですぐに出品
-      .reason__subtext 
+      .reason__under__subtext 
         スマホで入力するだけで簡単に出品できる！
-    .reason__explanation__two
-      %span.reason__important.reason__important__two 
+    .reason__under__two
+      %span.reason__under__important.reason__under__important__two 
         シンプル
-      %b.reason__text 
+      %b.reason__under__text 
         で使いやすい
-      .reason__subtext 
+      .reason__under__subtext 
         めんどくさい入力は必要なく、検索も購入もスムーズ！
-    .reason__explanation__three
-      %b.reason__text.reason__text__three 
+    .reason__under__three
+      %b.reason__under__text.reason__under__text__three 
         手数料
-      %span.reason__important 
+      %span.reason__under__important 
         業界最安
-      .reason__subtext 
+      .reason__under__subtext 
         最大3%でお得に出品&購入！
 
 .middle
@@ -76,28 +76,28 @@
 
 .feature
   .feature__box
-    .feature__title
+    .feature__box__title
       %b FURIMAの特徴
-      .feature__line 
+      .feature__box__line 
   .feature__select
-    =image_tag "icon/icon-01.png", size: "275x320" , class: "feature__one"
+    =image_tag "icon/icon-01.png", size: "275x320" , class: "feature__select__one"
     =image_tag "icon/icon-03.png", size: "275x320" 
-    =image_tag "icon/icon-04.png", size: "275x320" , class: "feature__three"
+    =image_tag "icon/icon-04.png", size: "275x320" , class: "feature__select__three"
   .feature__under
-    .feature__explanation__one
-      %b.feature__text.feature__text__one
+    .feature__under__one
+      %b.feature__under__text.feature__under__text__one
         簡単に売り買いできる
-      .feature__subtext 
+      .feature__under__subtext 
         スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-    .feature__explanation__two
-      %b.feature__text.feature__text__two
+    .feature__under__two
+      %b.feature__under__text.feature__under__text__two
         売上金は即日振込みに対応
-      .feature__subtext 
+      .feature__under__subtext 
         午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
-    .feature__explanation__three
-      %b.feature__text.feature__text__three 
+    .feature__under__three
+      %b.feature__under__text.feature__under__text__three 
         様々な支払いに対応
-      .feature__subtext 
+      .feature__under__subtext 
         お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
 .content
@@ -107,24 +107,24 @@
     新規投稿商品
   .content__list
     - @items.each do |item|
-      .content__box
-        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__image"
-        .content__name
+      .content__list__box
+        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
+        .content__list__name
           = item.name
-        .content__price
+        .content__list__price
           = "#{item.price}円（税込）"
-  -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する
+  -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する!!
   .content__title
     ピックアップカテゴリー
   .content__subtitle 
     新規投稿商品
   .content__list
     - @items.each do |item|
-      .content__box
-        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__image"
-        .content__name
+      .content__list__box
+        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
+        .content__list__name
           = item.name
-        .content__price
+        .content__list__price
           = "#{item.price}円（税込）"
 
 .bottom
@@ -135,5 +135,26 @@
     .bottom__subword
       今すぐ無料ダウンロード！
 
+.footer
+  .footer__one
+    .footer__list
+      FURIMAについて
+    =link_to "会社概要（運営会社)", "#", class: "footer__menu"
+    =link_to "プライバシーポリシー", "#", class: "footer__menu"
+    =link_to "FURIMA利用規約", "#", class: "footer__menu"
+    =link_to "ポイントに関する特約", "#", class: "footer__menu"
+  .footer__two
+    .footer__list
+      FURIMAを見る
+    =link_to "カテゴリー一覧", "#", class: "footer__menu"
+    =link_to "ブランド一覧", "#", class: "footer__menu"
+    =image_tag "logo/logo-white.png", size: "150x50", class: "footer__logo"
+  .footer__three
+    .footer__list
+      ヘルプ＆ガイド
+    =link_to "FURIMAガイド", "#", class: "footer__menu"
+    =link_to "FURIMAロゴ利用ガイドライン", "#", class: "footer__menu"
+    =link_to "お知らせ", "#", class: "footer__menu"
 
 
+    
