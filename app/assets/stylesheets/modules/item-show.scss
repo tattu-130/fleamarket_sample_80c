@@ -1,6 +1,7 @@
 .container {
   background-color: #f8f8f8;
   padding: 40px;
+  display: block;
   .itemBox {
     width: 700px;
     margin: 0 auto;
@@ -14,8 +15,15 @@
     }
     &__photo {
       margin-top: 16px;
-      &__top {}
-      &__bottom {}
+      display: block;
+      text-align: center;
+      &--top {
+        &__img {
+          justify-content: space-around;
+        }
+      }
+      &--bottom {
+      }
     }
     &__price {
       font-size: 46px;
@@ -98,5 +106,31 @@
         padding: 15px;
       }
     }
+    .optionalArea {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      .favoriteBtn {
+        margin-right: auto;
+        padding: 5px;
+        border-radius: 40px;
+        color: #3CCACE;
+        border: 1px solid #ffb340;      
+      }
+      .reportBtn {
+        font-size: 14px;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: #333;
+        border: 1px solid #333;
+      }
+    }
+  }
+  .commentBox {
+    background-color: #ffffff;
+    width: 700px;
+    height: 300px;
+    margin: 10px auto 0;
+    text-align: center;
   }
 }
