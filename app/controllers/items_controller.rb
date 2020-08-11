@@ -22,6 +22,9 @@ class ItemsController < ApplicationController
       puts "失敗"
     end
   end
+  
+  def show
+  end
 
   def destroy
     if @item.destroy
