@@ -262,13 +262,32 @@
   &__name {
     color: black;
     width: 160px;
+    height: 60px;
     text-align: left;
     padding: 10px 0 0 10px;
   }
   &__price {
     color: black;
+    height: 30px;
     text-align: left;
     padding-left: 10px;
+  }
+  &__frame {
+    width: 0;
+    border-top: 60px solid #ea352d;
+    border-right: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 60px solid #ea352d;
+    position: relative;
+    top: -265px;
+  }
+  &__sold{
+    transform: rotate(-45deg);
+    font-size: 25px;
+    color: #fff;
+    margin:-30px 0px 0px -55px;
+    letter-spacing: 2px;
+    font-weight: bold;
   }
 }
 
