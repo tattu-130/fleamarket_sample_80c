@@ -1,16 +1,25 @@
 .AccountPage__form
   = form_with model: @item, local: true do |f|
+    #image-box
+      #previews
+        - if @item.persisted?
+          - @item.item_imgs.each_with_index do |image, i|
+            = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
+      = f.fields_for :item_imgs do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :src, class: 'js-file'
+          %br/
+          %span.js-remove 削除
+        - if @item.persisted?
+          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+      - if @item.persisted?
+        .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+          = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
+          .js-remove 削除
     .FormField
       = f.label "商品名"
       = f.text_field :name
     .FormField
       = f.label "価格"
       = f.number_field :price
-    #image-box
-      = f.fields_for :item_imgs do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :src, class: 'js-file'
-          %br/
-          %span.js-remove 削除
     = f.submit
-    
