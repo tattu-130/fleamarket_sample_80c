@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC").limit(5)
   end
   
 
@@ -33,3 +33,5 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 end
+
+
