@@ -108,7 +108,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|url|string|null: false|
+|src|string|null: false|
 
 ### Association
 - belongs_to :item

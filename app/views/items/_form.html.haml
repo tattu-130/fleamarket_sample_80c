@@ -1,0 +1,16 @@
+.AccountPage__form
+  = form_with model: @item, local: true do |f|
+    .FormField
+      = f.label "商品名"
+      = f.text_field :name
+    .FormField
+      = f.label "価格"
+      = f.number_field :price
+    #image-box
+      = f.fields_for :item_imgs do |image|
+        .js-file_group{"data-index" => "#{image.index}"}
+          = image.file_field :src, class: 'js-file'
+          %br/
+          %span.js-remove 削除
+    = f.submit
+    
