@@ -6,19 +6,78 @@
   = link_to "ログイン", new_user_session_path, method: :get, class: 'Button'
   = link_to "新規登録", new_user_registration_path, method: :get, class: 'Button'
 
-.wrapper
-  .container
-    %h1.item-name
-      = @item.name 
-    .item-buyBtn-box
+.container
+  .itemBox
+    .itemBox__name
+      = @item.name
+    .itemBox__photo
+      .itemBox__photo--top
+        =image_tag @item.item_imgs[0].url, size: "560x346"
+      .itemBox__photo--bottom
+    .itemBox__price
+      ¥
+      = @item.price
+      .itemBox__price__postage
+        (税込)
+        = @item.postage
+    .itemBox__btn
       -if user_signed_in? && current_user.id == @item.user_id
         %span
-          = link_to "編集する", edit_item_path(@item.id)
+          = link_to "編集する", edit_item_path(@item.id), class: "itemBox__btn__edit"
         %span
-          = link_to "削除する", item_path(@item.id), method: :delete
+          = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "itemBox__btn__delete"
       - elsif user_signed_in?
         %span
-          = link_to "購入画面へ進む", '#'
+          = link_to "購入画面へ進む", '#', class: "itemBox__btn__buy"
       - else 
         %span
-          = link_to "ログインする", items_path
+          = link_to "ログインする", items_path, class: "itemBox__btn__login"
+    .itemDetail
+      = @item.detail
+    .itemBox__table
+      %table
+        %tbody
+          %tr
+            %th
+              出品者
+            %td
+              = @item.user.nickname
+          %tr
+            %th
+              カテゴリー
+            %td
+              未実装
+          %tr
+            %th
+              ブランド
+            %td
+              未実装
+          %tr
+            %th
+              商品のサイズ
+            %td
+              未実装
+          %tr
+            %th
+              商品の状態
+            %td
+              = @item.item_condition
+          %tr
+            %th
+              配送料の負担
+            %td
+              ¥
+              = @item.postage
+          %tr
+            %th
+              発送元の地域
+            %td
+              = @item.post_code
+          %tr
+            %th
+              発送日の目安
+            %td
+              = @item.delivery_days
+    -# .optionalArea
+    -#   = link_to "お気に入り", '#', class: "itemBox__btn__login"
+      
