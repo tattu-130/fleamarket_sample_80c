@@ -94,11 +94,12 @@
   .content__list
     - @items.each do |item|
       .content__list__box
-        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
-        .content__list__name
-          = item.name
-        .content__list__price
-          = "#{item.price}円（税込）"
+        =link_to item_path(item.id) do
+          =image_tag item.item_imgs[0].src.url, size: "220x170"
+          .content__list__name
+            = item.name
+          .content__list__price
+            = "#{item.price}円（税込）"
   -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する!!
   .content__title
     ピックアップカテゴリー
@@ -107,11 +108,13 @@
   .content__list
     - @items.each do |item|
       .content__list__box
-        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
-        .content__list__name
-          = item.name
-        .content__list__price
-          = "#{item.price}円（税込）"
+        =link_to item_path(item.id) do
+          =image_tag item.item_imgs[0].src.url, size: "220x170"
+          .content__list__name
+            = item.name
+          .content__list__price
+            = "#{item.price}円（税込）"
+  
 
 .bottom
   =image_tag "pict/bg-appBanner-pict.jpg", class: "bottom__picture" 
