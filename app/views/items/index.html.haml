@@ -1,10 +1,124 @@
-%h1 ユーザー認証機能のテスト用
-- if user_signed_in?
-  = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: 'Button'
-  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
-- else
-  = link_to "ログイン", new_user_session_path, method: :get, class: 'Button'
-  = link_to "新規登録", new_user_registration_path, method: :get, class: 'Button'
+-# 齋藤テスト用
+-# = render @items
 
-= render @items
+= render partial: "render/header"
 
+.main
+  =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
+  .main__word
+    .main__subject
+      人生を変えるフリマアプリ
+    .main__subword
+      %p FURIMAはだれでもかんたんに出品・購入できる
+      フリマアプリです
+
+.reason
+  .reason__box
+    .reason__box__title
+      %b FURIMAが選ばれる3つの理由
+      .reason__box__line 
+  .reason__select
+    =image_tag "pict/pict-reason-01.jpg" , class: "reason__select__one"
+    .reason__select__number.reason__select__number__one
+      1
+    =image_tag "pict/pict-reason-02.jpg", class: "reason__select__two"
+    .reason__select__number.reason__select__number__two
+      2
+    =image_tag "pict/pict-reason-03.jpg", class: "reason__select__three"
+    .reason__select__number.reason__select__number__three
+      3
+  .reason__under
+    .reason__under__one
+      %span.reason__under__important.reason__under__important__one
+        ３分
+      %b.reason__under__text 
+        ですぐに出品
+      .reason__under__subtext 
+        スマホで入力するだけで簡単に出品できる！
+    .reason__under__two
+      %span.reason__under__important.reason__under__important__two 
+        シンプル
+      %b.reason__under__text 
+        で使いやすい
+      .reason__under__subtext 
+        めんどくさい入力は必要なく、検索も購入もスムーズ！
+    .reason__under__three
+      %b.reason__under__text.reason__under__text__three 
+        手数料
+      %span.reason__under__important 
+        業界最安
+      .reason__under__subtext 
+        最大3%でお得に出品&購入！
+
+.middle
+  =image_tag "pict/bg-topMiddleDl-pict.jpg", class: "middle__picture" 
+  .middle__word
+    .middle__subject
+      会員数日本一位
+    .middle__subword
+      %p FURIMAは、フリマアプリで最も人気。
+      %p 出品・購入回数も業界最多です！
+      ほしかったあの商品に出会えるかもしれません。
+
+.feature
+  .feature__box
+    .feature__box__title
+      %b FURIMAの特徴
+      .feature__box__line 
+  .feature__select
+    =image_tag "icon/icon-01.png", class: "feature__select__one"
+    =image_tag "icon/icon-03.png", class: "feature__select__two"
+    =image_tag "icon/icon-04.png", class: "feature__select__three"
+  .feature__under
+    .feature__under__one
+      %b.feature__under__text.feature__under__text__one
+        簡単に売り買いできる
+      .feature__under__subtext 
+        スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+    .feature__under__two
+      %b.feature__under__text.feature__under__text__two
+        売上金は即日振込みに対応
+      .feature__under__subtext 
+        午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+    .feature__under__three
+      %b.feature__under__text.feature__under__text__three 
+        様々な支払いに対応
+      .feature__under__subtext 
+        お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+
+.content
+  .content__title
+    ピックアップカテゴリー
+  .content__subtitle 
+    新規投稿商品
+  .content__list
+    - @items.each do |item|
+      .content__list__box
+        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
+        .content__list__name
+          = item.name
+        .content__list__price
+          = "#{item.price}円（税込）"
+  -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する!!
+  .content__title
+    ピックアップカテゴリー
+  .content__subtitle 
+    新規投稿商品
+  .content__list
+    - @items.each do |item|
+      .content__list__box
+        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
+        .content__list__name
+          = item.name
+        .content__list__price
+          = "#{item.price}円（税込）"
+
+.bottom
+  =image_tag "pict/bg-appBanner-pict.jpg", class: "bottom__picture" 
+  .bottom__word
+    .bottom__subject
+      だれでもかんたん、人生を変えるフリマアプリ
+    .bottom__subword
+      今すぐ無料ダウンロード！
+
+= render partial: "render/footer"

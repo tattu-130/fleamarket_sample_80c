@@ -1,8 +1,328 @@
 * {
   box-sizing: border-box;
+  text-decoration: none;
+}
+
+.header {
+  width: 100vw;
+  height: 110px;
+}
+.header__up {
+  display: flex;
+  align-items: center;
+  padding-top: 15px;
+  &__logo {
+    margin: 0 30px 0 190px;
+    width: 140px;
+  }
+  &__field {
+    width: 57vw;
+    height: 35px;
+    padding-left: 10px;
+  }
+  &__search {
+    background-color: #3CCACE;
+    padding: 8px;
+    width: 35px;
+    height: 35px;
+  }
+}
+.header__down {
+  display: flex;
+  justify-content: space-between;
+  &__left {
+    display: flex;
+    font-size: 13px;
+    margin: 15px 0 0 190px;
+  }
+  &__category {
+    margin-right: 50px;
+  }
+  &__right {
+    font-size: 13px;
+    margin: 15px 215px 0 0;
+  }
+  &__button {
+    margin-left: 20px;
+    color: black;
+  }
+}
+
+.main {
+  position: relative;
+  &__picture {
+    width: 100vw;
+    height: 560px;
+  }
+  &__word {
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    position: absolute;
+     top: 200px;
+     left: 80px;
+  }
+  &__subject {
+    font-size: 60px;
+    margin-bottom: 10px;
+  }
+  &__subword {
+    font-size: 17px;
+  }
+}
+
+.reason__box {
+  display: flex;
+  justify-content: center;
+  &__title {
+    font-size: 25px;
+    margin: 30px 0 60px 0;
+  }
+  &__line {
+    width: 80px;
+    border-bottom: 5px solid #3CCACE;
+    margin: 15px 0 0 140px;
+  }
+}
+.reason__select {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  &__one {
+    margin-left: 180px;
+    width: 279px;
+  }
+  &__two {
+    width: 279px;
+  }
+  &__three {
+    margin-right: 180px;
+    width: 279px;
+  }
+  &__number {
+    color: white;
+    background-color: #3CCACE;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 0 0 23px;
+  }
+  &__number__one {
+    position: absolute;
+    left: 218px;
+  }
+  &__number__two {
+    position: absolute;
+    left: 573px;
+  }
+  &__number__three {
+    position: absolute;
+    right: 437px;
+  }
+}
+.reason__under {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  &__important {
+    color: #3CCACE;
+    font-size: 23px;
+    font-weight: bold;
+  }
+  &__text {
+    font-size: 23px;
+  }
+  &__subtext {
+    font-size: 17px;
+    width: 300px;
+    margin: 20px 0 75px 0;
+  }
+  &__one {
+    margin-left: 200px;
+  }
+  &__three {
+    margin-right: 205px;
+  }
+  &__important__one {
+    padding-left: 55px;
+  }
+  &__important__two {
+    margin-left: 30px;;
+  }
+  &__text__three {
+    padding-left: 72px;
+  }
+}
+
+.middle {
+  position: relative;
+  &__picture {
+    width: 100vw;
+    height: 400px;
+  }
+  &__word {
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    position: absolute;
+     top: 100px;
+     left: 210px;
+  }
+  &__subject {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__subword {
+    font-size: 17px;
+  }
+}
+
+.feature__box {
+  display: flex;
+  justify-content: center;
+  &__title {
+    font-size: 25px;
+    margin: 65px 0 40px 0;
+  }
+  &__line {
+    width: 70px;
+    border-bottom: 5px solid #3CCACE;
+    margin: 8px 0 0 60px;
+  }
+}
+.feature__select {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  &__one {
+    margin-left: 180px;
+    width: 15vw;
+  }
+  &__two {
+    width: 15vw;
+  }
+  &__three {
+    margin-right: 180px;
+    width: 15vw;
+  }
+}
+.feature__under {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 100px 0;
+  &__text {
+    font-size: 18px;
+  }
+  &__subtext {
+    font-size: 15px;
+    width: 275px;
+    margin-top: 10px;
+  }
+  &__one {
+    margin-left: 220px;
+  }
+  &__three {
+    margin-right: 218px;
+  }
+  &__text__one {
+    padding-left: 45px;
+  }
+  &__text__two {
+    padding-left: 30px;
+  }
+  &__text__three {
+    padding-left: 55px;
+  }
 }
 
 .content {
+  background-color: whitesmoke;
+  width: 100vw;
+  height: 900px;
+  text-align: center;
+  &__title {
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 55px;
+  }
+  &__subtitle {
+    color: #3CCACE;
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+.content__list {
   display: flex;
+  justify-content: center;
+  &__box {
+    background-color: white;
+    height: 260px;
+  }
+  &__name {
+    width: 160px;
+    text-align: left;
+    padding: 10px 0 0 10px;
+  }
+  &__price {
+    text-align: left;
+    padding-left: 10px;
+  }
+}
+
+.bottom {
+  position: relative;
+  &__picture {
+    display: block;
+    width: 100vw;
+    height: 350px;
+  }
+  &__word {
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    position: absolute;
+     top: 100px;
+     left: 460px;
+  }
+  &__subject {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__subword {
+    font-size: 35px;
+    padding-left: 55px;
+  }
+}
+
+.footer {
+  color: white;
+  background-color: #272727;
+  width: 100vw;
+  height: 340px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  &__list {
+    margin: 55px 0 30px 0;
+  }
+  &__menu {
+    color: white;
+    font-size: 12px;
+    display: block;
+    margin-top: 10px;
+  }
+  &__list {
+    font-weight: bold;
+  }
+  &__one {
+    margin-left: 360px;
+  }
+  &__three {
+    margin-right: 360px;
+  }
+  &__logo {
+    margin-top: 80px;
+  }
 }
 

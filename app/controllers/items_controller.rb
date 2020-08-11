@@ -3,6 +3,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:item_imgs).order('created_at DESC')
+#     大橋さんの記述を一旦コメントアウトします。必要に応じて使ってください。
+#     @items = Item.all.order("created_at DESC").limit(5)
   end
   
 
@@ -40,3 +42,5 @@ class ItemsController < ApplicationController
   end
 
 end
+
+
