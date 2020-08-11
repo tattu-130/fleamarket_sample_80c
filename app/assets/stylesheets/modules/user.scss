@@ -1,40 +1,57 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+.requiredLabel {
+  background-color: red;
+  color: white;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 1px 5px;
+}
+
+.AccountContainer {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 180px;
+}
+
+.AccountHeader {
+  width: 100%;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .AccountPage {
-  width: 980px;
-  margin: 60px auto;
-  padding: 60px;
+  width: calc(100% - 300px);
+  margin: 0 150px;
+  padding-bottom: 30px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-}
-.AccountPage__title {
-  width: 50%;
-  font-size: 14px;
-  font-weight: 200;
-
-  h2 {
-    margin-bottom: 10px;
-    letter-spacing: 3px;
-    font-size: 40px;
-    &:after {
-      content: "";
-      display: block;
-      width: 60px;
-      margin-top: 5px;
-      border-bottom: 1px solid #38aef0;
+  &__title {
+    font-size: 14px;
+    font-weight: 200;
+    border-bottom: solid 1px #f5f5f5;
+    line-height: 1.5;
+    
+    h2 {
+      margin: 30px 0;
+      letter-spacing: 3px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
     }
-  }
-
-  .Button {
-    margin-top: 40px;
-    color: #fff;
-    background-color: #ccc;
   }
 }
 
 .AccountPage__form {
   width: 50%;
+  margin: 0 auto;
 }
 
 .FormField {
@@ -43,10 +60,7 @@
     padding: 10px 0;
     letter-spacing: 1px;
     font-size: 14px;
-    font-weight: 200;
-    i {
-      font-size: 11px;
-    }
+    font-weight: bold;
     .field_with_errors {
       display: inline-block;
       color: #d65f4c;
@@ -62,17 +76,6 @@
     }
     .field_with_errors {
       position: relative;
-
-      &:after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 5px;
-        background-color: #d65f4c;
-      }
     }
   }
 }
@@ -97,11 +100,12 @@
   border: none;
   border-radius: 2px;
   text-decoration: none;
+  margin-top: 40px;
+  color: #fff;
+  background-color: #ccc;
 }
 
 .UserButton {
-  margin-top: 20px;
-  color: #fff;
   background-color: #38aef0;
 }
 
@@ -128,4 +132,35 @@
     padding: 0;
     font-size: 13px;
   }
+}
+
+.AccountFooter {
+  width: 100%;
+  height: 180px;
+  margin: 0 auto;
+  padding: 40px 0;
+  position: absolute;
+  bottom: 0;
+  &--flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+    .footerNav ul{
+      display: flex;
+      margin-bottom: 30px;
+      li {
+        margin-left: 16px;
+        font-size: small;
+      }
+      li a{
+        text-decoration: none;
+        color: #333333
+      }
+    }
+    .gray {
+      opacity: 0.5;
+      filter: grayscale(100%);
+    }
 }
