@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_051541) do
+ActiveRecord::Schema.define(version: 2020_08_12_015520) do
 
   create_table "destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "destination_first_name", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_051541) do
   end
 
   create_table "item_imgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "src"
+    t.string "src", null: false
     t.bigint "item_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,18 +38,19 @@ ActiveRecord::Schema.define(version: 2020_08_11_051541) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "detail"
-    t.integer "price"
-    t.string "item_condition"
-    t.integer "postage"
+    t.string "name", null: false
+    t.text "detail", null: false
+    t.integer "price", null: false
+    t.integer "item_condition", null: false
+    t.integer "postage", null: false
     t.integer "post_code"
-    t.integer "delivery_days"
+    t.integer "delivery_days", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.boolean "seller", default: true, null: false
     t.boolean "buyer", default: false
+    t.integer "prefecture", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
