@@ -100,6 +100,15 @@
             = item.name
           .content__list__price
             = "#{item.price}円（税込）"
+        = image_tag "#{item.item_imgs[0].src.url}"
+        -# - item.item_imgs.each do |image|
+        -#   = image_tag image.src.url
+        -# = link_to '削除', item_path(item.id), method: :delete
+        -# = link_to '編集', edit_item_path(item.id)
+        -# .content__list__name
+        -#   = item.name
+        -# .content__list__price
+        -#   = "#{item.price}円（税込）"
   -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する!!
   .content__title
     ピックアップカテゴリー
@@ -124,6 +133,15 @@
         -#     .content__list__sold
         -#       SOLD
   
+        -# = image_tag "#{item.item_imgs[0].src.url}"
+        -# -# - item.item_imgs.each do |image|
+        -# -#   = image_tag image.src.url
+        -# = link_to '削除', item_path(item.id), method: :delete
+        -# = link_to '編集', edit_item_path(item.id)
+        -# .content__list__name
+        -#   = item.name
+        -# .content__list__price
+        -#   = "#{item.price}円（税込）"
 
 .bottom
   =image_tag "pict/bg-appBanner-pict.jpg", class: "bottom__picture" 
