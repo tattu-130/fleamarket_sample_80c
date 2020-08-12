@@ -1,16 +1,82 @@
-.AccountPage__form
-  = form_with model: @item, local: true do |f|
-    .FormField
-      = f.label "商品名"
-      = f.text_field :name
-    .FormField
-      = f.label "価格"
-      = f.number_field :price
-    #image-box
-      = f.fields_for :item_imgs do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :src, class: 'js-file'
-          %br/
-          %span.js-remove 削除
-    = f.submit
-    
+= render 'error_messages'
+.AccountContainer
+  = render 'devise/shared/header'
+  .AccountPage
+    .AccountPage__form.Sale__form
+      = form_with model: @item, local: true do |f|
+        #image-box
+          #previews
+            - if @item.persisted?
+              - @item.item_imgs.each_with_index do |image, i|
+                = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
+          .FormField
+            .FormField__input--normal
+              = f.fields_for :item_imgs do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.file_field :src, class: 'js-file'
+                  %br/
+                  %span.js-remove 削除
+                - if @item.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+                  = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
+                  .js-remove 削除
+        .FormField
+          .FormField__label--normal
+            = f.label "商品名"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.text_field :name, placeholder: "40文字まで"
+        .FormField
+          .FormField__label--normal
+            = f.label "商品の説明"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.text_area :detail, size: "30x10", class: "Sale__textForm", placeholder: "色、素材、重さ、定価、注意点など"
+        .FormField
+          .FormField__label--normal
+            = f.label "カテゴリー"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.text_field :category_id, placeholder: "カテゴリ機能実装までの仮フォーム", disabled: "disabled"
+        .FormField
+          .FormField__label--normal
+            = f.label "ブランド（任意）"
+          .FormField__input--normal
+            = f.text_field :brand_id, placeholder: "ブランド機能実装までの仮フォーム", disabled: "disabled"
+        .FormField
+          .FormField__label--normal
+            = f.label "商品の状態"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.select :item_condition, Item.item_conditions.keys, {prompt: "選択してください"}
+        .FormField
+          .FormField__label--normal
+            = f.label "配送料の負担"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.select :postage, Item.postages.keys, {prompt: "選択してください"}
+        .FormField
+          .FormField__label--normal
+            = f.label "発送元の地域"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.select :prefecture, Item.prefectures.keys, {prompt: "選択してください"}
+        .FormField
+          .FormField__label--normal
+            = f.label "発送までの日数"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.select :delivery_days, Item.delivery_days.keys, {prompt: "選択してください"}
+        .FormField
+          .FormField__label--normal
+            = f.label "価格"
+            %span.requiredLabel 必須
+          .FormField__input--normal
+            = f.number_field :price
+        = f.submit "出品する", class: "Button UserButton"
+        = link_to "トップへ戻る", root_path, method: :get, class: 'Button'
+
+  = render "devise/shared/footer"
+

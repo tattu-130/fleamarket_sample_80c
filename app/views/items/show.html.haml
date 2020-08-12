@@ -1,24 +1,86 @@
-%h1.header ユーザー認証機能のテスト用
-- if user_signed_in?
-  = link_to "マイページ", "/users/#{current_user.id}", method: :get, class: 'Button'
-  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
-- else
-  = link_to "ログイン", new_user_session_path, method: :get, class: 'Button'
-  = link_to "新規登録", new_user_registration_path, method: :get, class: 'Button'
-
-.wrapper
+= render partial: "render/header"
+.show-wrapper
   .container
-    %h1.item-name
-      = @item.name 
-    .item-buyBtn-box
-      -if user_signed_in? && current_user.id == @item.user_id
-        %span
-          = link_to "編集する", edit_item_path(@item.id)
-        %span
-          = link_to "削除する", item_path(@item.id), method: :delete
-      - elsif user_signed_in?
-        %span
-          = link_to "購入画面へ進む", '#'
-      - else 
-        %span
-          = link_to "ログインする", items_path
+    .itemBox
+      .itemBox__name 
+        = @item.name
+      .itemBox__photo
+        .itemBox__photo--top
+          =image_tag(@item.item_imgs[0].src.url, size: "560x346", class: "itemBox__photo--top__img")
+        .itemBox__photo--bottom
+          - @item.item_imgs.each do |image|
+            =image_tag image.src.url, size: "140x87"
+        
+      .itemBox__price
+        ¥
+        = @item.price
+        .itemBox__price__postage
+          (税込)
+          = @item.postage
+      .itemBox__btn
+        -if user_signed_in? && current_user.id == @item.user_id
+          %span
+            = link_to "編集する", edit_item_path(@item.id), class: "itemBox__btn__edit"
+          %span
+            = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "itemBox__btn__delete"
+        - elsif user_signed_in?
+          %span
+            = link_to "購入画面へ進む", '#', class: "itemBox__btn__buy"
+        - else 
+          %span
+            = link_to "ログインする", items_path, class: "itemBox__btn__login"
+      .itemDetail
+        = @item.detail
+      .itemBox__table
+        %table
+          %tbody
+            %tr
+              %th
+                出品者
+              %td
+                = @item.user.nickname
+            %tr
+              %th
+                カテゴリー
+              %td
+                未実装
+            %tr
+              %th
+                ブランド
+              %td
+                未実装
+            %tr
+              %th
+                商品のサイズ
+              %td
+            %tr
+              %th
+                商品の状態
+              %td
+                = @item.item_condition
+            %tr
+              %th
+                配送料の負担
+              %td
+                = @item.postage
+            %tr
+              %th
+                発送元の地域
+              %td
+                = @item.post_code
+            %tr
+              %th
+                発送日の目安
+              %td
+                = @item.delivery_days
+      .optionalArea
+        .favoriteBtn
+          %i.fa.fa-star
+          お気に入り 0
+        .reportBtn
+          %i.fa.fa-flag
+          不適切な商品の情報
+    .commentBox
+      コメント機能 未実装
+            
+= render partial: "render/footer"
