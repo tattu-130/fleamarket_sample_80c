@@ -94,7 +94,7 @@
   .content__list
     - @items.each do |item|
       .content__list__box
-        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
+        =image_tag item.item_imgs[0].src.url, size: "220x170", class: "class__list__image"
         .content__list__name
           = item.name
         .content__list__price
@@ -107,7 +107,7 @@
   .content__list
     - @items.each do |item|
       .content__list__box
-        =image_tag item.item_imgs[0].url, size: "220x170", class: "class__list__image"
+        =image_tag item.item_imgs[0].src.url, size: "220x170", class: "class__list__image"
         .content__list__name
           = item.name
         .content__list__price

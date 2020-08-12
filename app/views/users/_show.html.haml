@@ -1,0 +1,150 @@
+=link_to "/" do
+  .mypage__left__box
+    .mypage__left__text
+      トップへ戻る
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      お知らせ
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      やることリスト
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      いいね！一覧
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      出品する
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      下書き一覧
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      出品した商品‐出品中
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      出品した商品‐取引中
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      出品した商品‐売却済み
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      購入した商品‐取引中
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      購入した商品‐過去の取引
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      ニュース一覧
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      評価一覧
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      ガイド
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      お問い合わせ
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+.mypage__left__box__title
+  設定
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      プロフィール
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+- if @user_des.present?
+  = link_to user_destination_path(@user_des.user_id, @user_des.id), method: :delete do
+    .mypage__left__box
+      .mypage__left__text
+        配送先の削除
+      .mypage__left__sign
+        = icon("fas", "chevron-right")
+- else
+  = link_to new_user_destination_path(current_user.id), method: :get do
+    .mypage__left__box
+      .mypage__left__text
+        お届け先住所登録
+      .mypage__left__sign
+        = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      お支払い方法
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      メール/パスワード
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      本人情報
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      電話番号の確認
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+=link_to "#" do
+  .mypage__left__box
+    .mypage__left__text
+      ログアウト
+    .mypage__left__sign
+      = icon("fas", "chevron-right")
+
+-# 今後変更の可能性があるため残してます！！
+-# - unless @user_des.present?
+-#   = link_to "配送先情報の登録", new_user_destination_path(current_user.id), method: :get, class: 'Button'
+-# = link_to "トップへ戻る", "/", method: :get, class: 'Button'
+
+-#  - if @user_des.present?
+-# = link_to '配送先の削除', user_destination_path(@user_des.user_id, @user_des.id), method: :delete, class: 'Button'
