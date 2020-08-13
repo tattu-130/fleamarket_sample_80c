@@ -15,20 +15,33 @@
     - if @user_des.present?
       .mypage__right__under__list
         .mypage__right__under__box
-          = "お名前：#{@user_des.destination_family_name}"
+          .name__space お名前
+          %span：
+          = @user_des.destination_family_name
           = @user_des.destination_first_name
           = "(#{@user_des.destination_family_name_kana}"
           = "#{@user_des.destination_first_name_kana})"
         .mypage__right__under__box
-          = "郵便番号：#{@user_des.post_code}"
+          .text__space 郵便番号
+          %span：
+          = @user_des.post_code
         .mypage__right__under__box
-          = "都道府県：#{@user_des.prefecture}"
+          .text__space 都道府県
+          %span：
+          = @user_des.prefecture
         .mypage__right__under__box
-          = "市区町村：#{@user_des.city}"
+          .text__space 市区町村
+          %span：
+          = @user_des.city
         .mypage__right__under__box
-          ="番地/建物名：#{@user_des.address}#{@user_des.building_name}"
+          番地/建物名
+          %span：
+          = @user_des.address
+          = @user_des.building_name
         .mypage__right__under__box
-          = "電話番号：#{@user_des.phone_number}"
+          .text__space 電話番号
+          %span：
+          = @user_des.phone_number
 
 
 = render partial: "render/footer"

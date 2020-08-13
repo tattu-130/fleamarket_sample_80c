@@ -113,7 +113,7 @@
 =link_to "#" do
   .mypage__left__box
     .mypage__left__text
-      クレジットカード登録
+      クレジットカードの登録
     .mypage__left__sign
       = icon("fas", "chevron-right")
 =link_to "#" do
@@ -141,10 +141,11 @@
     .mypage__left__sign
       = icon("fas", "chevron-right")
 
--# 今後変更の可能性があるため残してます！！
+-# 追加実装の際、変更の可能性があるため残してます！！
 -# - unless @user_des.present?
 -#   = link_to "配送先情報の登録", new_user_destination_path(current_user.id), method: :get, class: 'Button'
 -# = link_to "トップへ戻る", "/", method: :get, class: 'Button'
 
 -#  - if @user_des.present?
 -# = link_to '配送先の削除', user_destination_path(@user_des.user_id, @user_des.id), method: :delete, class: 'Button'
+
