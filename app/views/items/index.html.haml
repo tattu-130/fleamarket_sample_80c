@@ -102,7 +102,7 @@
         .content__list__price
           = "#{item.price}円（税込）"
         .content__list__buy
-          = link_to "購入画面へ進む", purchase_index_path()
+          = link_to "購入画面へ進む", item_purchase_index_path(item.id)
   -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する!!
   .content__title
     ピックアップカテゴリー

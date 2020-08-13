@@ -1,13 +1,13 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
 
   require "payjp"
 
   def new
     card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    redirect_to action: :show if card.exists?
   end
 
-  def pay #payjpとCardのデータベース作成を実施します。
+  def create #payjpとCardのデータベース作成を実施します。
     Payjp.api_key = "sk_test_89a218971bb95c2d33642259"
     if params['payjp-token'].blank?
       redirect_to action: "new"
@@ -22,12 +22,12 @@ class CardController < ApplicationController
       if @card.save
         redirect_to action: "show"
       else
-        redirect_to action: "pay"
+        redirect_to action: "create"
       end
     end
   end
 
-  def delete #PayjpとCardデータベースを削除します
+  def destroy #PayjpとCardデータベースを削除します
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else

@@ -1,6 +1,8 @@
-%h2 購入を確定しますか？
-%p ワンピース
-%p ¥1,000(送料込み)
+.title 購入を確定しますか？
+.item_name 
+  = @item.name
+.item_price
+  = "¥#{@item.price}"
 %br
 %h3 支払い方法
 - if @default_card_information.blank?

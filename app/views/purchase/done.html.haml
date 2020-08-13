@@ -1,5 +1,6 @@
 %h2 購入が完了しました！
-%p ワンピース
-%p ¥1,000(送料込み)
-
+.item_name 
+  = @item.name
+.item_price
+  = "¥#{@item.price}"
 = link_to "トップへ戻る", "/"
