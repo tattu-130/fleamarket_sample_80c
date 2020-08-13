@@ -5,8 +5,11 @@
     =render "show"
   .mypage__right
     .mypage__right__top
-      .mypage__right__top__name
-        = "#{@nickname}のページです"
+      .mypage__right__top__box
+        .mypage__right__top__flame
+          = image_tag @image, class: "mypage__right__top__image"
+        .mypage__right__top__name
+          = "#{@nickname}のページです"
     .mypage__right__under 
       登録された配送先情報
     - if @user_des.present?
