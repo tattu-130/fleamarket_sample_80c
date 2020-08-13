@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id'
   has_many :item_imgs, dependent: :destroy
+  # belongs_to :user, class_name: 'User', foreign_key: 'buyer_id', optional: true
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 
   with_options presence: true do
@@ -31,7 +32,7 @@ class Item < ApplicationRecord
 
   enum postage: {"送料込み（出品者負担）": 0, "着払い（購入者負担）": 1}
 
-  enum item_condition: {
+  enum item_conditions: {
     "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5
   }
 

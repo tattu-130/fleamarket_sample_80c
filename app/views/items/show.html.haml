@@ -23,9 +23,12 @@
             = link_to "編集する", edit_item_path(@item.id), class: "itemBox__btn__edit"
           %span
             = link_to "この商品を削除する", item_path(@item.id), method: :delete, class: "itemBox__btn__delete"
+        - elsif @item.buyer.present?
+          %span
+            = link_to "トップへ戻る", "/", class: "itemBox__btn__edit"
         - elsif user_signed_in?
           %span
-            = link_to "購入画面へ進む", item_purchase_index_path(@item)
+            = link_to "購入画面へ進む", item_purchase_index_path(@item), class: "itemBox__btn__buy"
         - else 
           %span
             = link_to "ログインする", items_path, class: "itemBox__btn__login"
