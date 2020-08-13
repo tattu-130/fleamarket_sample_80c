@@ -8,7 +8,7 @@ class Item < ApplicationRecord
     validates :name,            length: { maximum: 40 }
     validates :detail
     validates :price
-    # validates :category_id
+    validates :category_id
     validates :item_condition
     validates :postage
     validates :prefecture
