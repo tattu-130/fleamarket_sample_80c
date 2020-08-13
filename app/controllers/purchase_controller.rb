@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   def index
     card = Card.where(user_id: current_user.id).first
     if card.blank?
-      redirect_to controller: "card", action: "new"
+      redirect_to controller: "cards", action: "new"
     else
       Payjp.api_key = "sk_test_89a218971bb95c2d33642259"
       #保管した顧客IDでpayjpから情報取得
