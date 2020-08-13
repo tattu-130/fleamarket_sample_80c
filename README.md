@@ -72,6 +72,8 @@
 |delivery_days|integer|null: false|
 |created_at|datetime|null: false|
 |user_id|references|null: false, foreign_key: true|
+|seller|boolean|null: false|
+|buyer|boolean|
 
 ### Association
 - has_many :comments, dependent: :destroy

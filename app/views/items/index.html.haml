@@ -94,15 +94,19 @@
   .content__list
     - @items.each do |item|
       .content__list__box
-        - item.item_imgs.each do |image|
-          = image_tag image.src.url
-          = link_to '削除', item_path(item.id), method: :delete
-        .content__list__name
-          = item.name
-        .content__list__price
-          = "#{item.price}円（税込）"
-        .content__list__buy
-          = link_to "購入画面へ進む", item_purchase_index_path(item.id)
+        =link_to item_path(item.id) do
+          =image_tag item.item_imgs[0].src.url, size: "220x170"
+          .content__list__name
+            = item.name
+          .content__list__price
+            = "#{item.price}円（税込）"
+          -if item.buyer.present?
+            .content__list__frame
+              .content__list__sold
+                SOLD
+          .content__list__buy
+            = link_to "購入画面へ進む", item_purchase_index_path(item.id)
+
   -# 雰囲気を出すためにあえて2つ記述。カテゴリー実装後は編集する!!
   .content__title
     ピックアップカテゴリー
@@ -111,13 +115,18 @@
   .content__list
     - @items.each do |item|
       .content__list__box
-        - item.item_imgs.each do |image|
-          = image_tag image.src.url
-          = link_to '削除', item_path(item.id), method: :delete
-        .content__list__name
-          = item.name
-        .content__list__price
-          = "#{item.price}円（税込）"
+        =link_to item_path(item.id) do
+          =image_tag item.item_imgs[0].src.url, size: "220x170"
+          .content__list__name
+            = item.name
+          .content__list__price
+            = "#{item.price}円（税込）"
+          -if item.buyer.present?
+            .content__list__frame
+              .content__list__sold
+                SOLD
+          .content__list__buy
+            = link_to "購入画面へ進む", item_purchase_index_path(item.id)
 
 .bottom
   =image_tag "pict/bg-appBanner-pict.jpg", class: "bottom__picture" 
@@ -128,3 +137,5 @@
       今すぐ無料ダウンロード！
 
 = render partial: "render/footer"
+
+
