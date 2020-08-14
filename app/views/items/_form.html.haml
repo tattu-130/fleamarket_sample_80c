@@ -39,7 +39,7 @@
             = f.label "カテゴリー"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+            = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
         .FormField
           .FormField__label--normal
             = f.label "ブランド（任意）"
