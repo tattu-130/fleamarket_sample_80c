@@ -7,7 +7,7 @@ class PurchaseController < ApplicationController
     if card.blank?
       redirect_to controller: "cards", action: "new"
     else
-      Payjp.api_key = "sk_test_89a218971bb95c2d33642259"
+      Payjp.api_key = Rails.application.credentials[:pay_jp][:PAYJP_SECRET_KEY]
       #保管した顧客IDでpayjpから情報取得
       customer = Payjp::Customer.retrieve(card.customer_id)
       #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
@@ -17,7 +17,7 @@ class PurchaseController < ApplicationController
 
   def pay
     card = Card.where(user_id: current_user.id).first
-    Payjp.api_key = "sk_test_89a218971bb95c2d33642259"
+    Payjp.api_key = Rails.application.credentials[:pay_jp][:PAYJP_SECRET_KEY]
     Payjp::Charge.create(
     amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
     customer: card.customer_id, #顧客ID
