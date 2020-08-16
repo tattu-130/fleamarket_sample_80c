@@ -4,10 +4,6 @@ Rails.application.routes.draw do
   resources :items, except: :new
   resources :users, only: :show do
     resources :destinations, only: [:new, :create, :destroy]
-    resources :items, only: :new do
-      collection do
-        get :search
-      end
-    end
+    resources :items, only: :new
   end
 end
