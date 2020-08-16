@@ -1,17 +1,22 @@
 $(document).on('turbolinks:load', ()=> {
+
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[item_imgs_attributes][${index}][src]"
                     id="item_item_imgs_attributes_${index}_src"><br>
-                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div class=previewBox><img data-index="${index}" src="${url}" width="100px" height="100px"><div class=js-remove-previews>削除</div></div>`;
+    // プレビューが5枚あったらラベルを隠す
+    let count = $('.previewBox').length;
+    if (count == 4){
+      $('.dropBox').hide();
+    }
     return html;
   }
 
@@ -33,7 +38,7 @@ $(document).on('turbolinks:load', ()=> {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
-      $('#previews').append(buildImg(targetIndex, blobUrl));
+      $('#previews').prepend(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#image-box').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
@@ -42,6 +47,20 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
 
+  // 新規出品時にプレビュー直下に削除ボタンを設置
+  $('#previews').on('click', '.js-remove-previews', function() {
+    const targetIndex = $(this).prev().data('index')
+    console.log(targetIndex);
+    $(this).parent().remove();
+    $(`.js-file_group[data-index="${targetIndex}"]`).remove();
+    // プレビューが4枚以下ならラベルを表示
+    let count = $('.previewBox').length;
+    if (count < 5){
+      $('.dropBox').show();
+    }
+  });
+
+  // 編集時の削除メソッド
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index')
     // 該当indexを振られているチェックボックスを取得する
@@ -51,8 +70,20 @@ $(document).on('turbolinks:load', ()=> {
 
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
+    // プレビューが4枚以下ならラベルを表示
+    let count = $('.previewBox').length;
+    if (count < 5){
+      $('.dropBox').show();
+    }
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  });
+
+  // dropBox押下時にinputを呼び出す
+  $('.dropBox').on('click', function() {
+    lastIndex = $('.js-file_group:last').children('input')[0];
+    console.log(lastIndex);
+    $(lastIndex).trigger("click");
   });
 });
