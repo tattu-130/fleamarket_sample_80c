@@ -1,10 +1,10 @@
 -if current_user.favorites.find_by(item_id: @item)
-  = link_to item_favorites_path(@item), method: :delete do
-    .favoriteBtn
-      %i.fa.fa-star
-        お気に入り削除
+  = link_to item_favorites_path(@item), method: :delete, remote: true do
+    .favoriteBtn.favoriteBtn--color
+      %i.fa.fa-star.fa
+        お気に入り済み
 -else
-  = link_to item_favorites_path(@item), method: :post do
+  = link_to item_favorites_path(@item), method: :post, remote: true do
     .favoriteBtn
       %i.fa.fa-star
         お気に入り

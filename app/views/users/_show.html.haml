@@ -16,10 +16,10 @@
       やることリスト
     .mypage__left__sign
       = icon("fas", "chevron-right")
-=link_to "#" do
+=link_to users_path do
   .mypage__left__box
     .mypage__left__text
-      いいね！一覧
+      お気に入り！一覧
     .mypage__left__sign
       = icon("fas", "chevron-right")
 =link_to new_user_item_path(current_user.id) do

@@ -9,3 +9,7 @@ class CreateFavorites < ActiveRecord::Migration[6.0]
     end
   end
 end
+
+# まずやること
+# お気に入り登録まとめる
+# ドリルまとめる

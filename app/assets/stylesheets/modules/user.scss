@@ -250,3 +250,24 @@
 }
 
 
+.mypage__item {
+  background-color: white;
+  width: 50vw;
+  height: 147vh;
+  margin-left: 40px;
+  &__title {
+    width: 50vw;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+    border-bottom: 1px solid whitesmoke;
+  }
+  &__list__box {
+    height: 260px;
+  }
+}
+
+
+

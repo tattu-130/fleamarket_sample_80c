@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :items, except: :new do
     resource :favorites, only: [:create, :destroy]
   end
-  resources :users, only: :show do
+  resources :users, only: [:index, :show] do
     resources :destinations, only: [:new, :create, :destroy]
     resources :items, only: :new
   end
