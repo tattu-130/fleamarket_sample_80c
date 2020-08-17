@@ -6,9 +6,16 @@ Rails.application.routes.draw do
       get 'category_children', defaults:{ format: 'json'}
       get 'category_grandchildren', defaults:{ format: 'json'}
     end
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
   end
   resources :users, only: :show do
     resources :destinations, only: [:new, :create, :destroy]
     resources :items, only: :new 
   end
+  resource :cards, only: [:new, :create, :show, :destroy]
 end

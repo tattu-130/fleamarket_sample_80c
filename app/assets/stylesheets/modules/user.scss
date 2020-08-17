@@ -164,3 +164,89 @@
       filter: grayscale(100%);
     }
 }
+
+.mypage {
+  background-color: whitesmoke;
+  width: 100vw;
+  height: 168vh;
+  display: flex;
+  padding: 40px 0 0 220px;
+}
+.mypage__left {
+  width: 19vw;
+  height: 147vh;
+  &__box {
+    height: 50px;
+    background-color: white;
+    border-bottom: 1px solid whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+  &__text {
+    color: black;
+    font-size: 15px;
+  }
+  &__sign {
+    color: lightgrey;
+    font-size: 18px;
+  }
+  &__box__title {
+    height: 60px;
+    font-size: 17px;
+    font-weight: bold;
+    padding-top: 33px;
+  }
+}
+.mypage__right {
+  background-color: white;
+  width: 50vw;
+  height: 70vh;
+  margin-left: 40px;
+}
+.mypage__right__top {
+  background-color: azure;
+  height: 25vh;
+  border-bottom: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__flame {
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 0 10px 80px;
+  }
+  &__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+  }
+  &__name {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+.mypage__right__under {
+  width: 25vw;
+  font-size: 30px;
+  border-bottom: 1px solid red;
+  text-align: center;
+  margin: 15px 0 30px 165px;
+  &__box {
+    font-size: 20px;
+    margin: 10px 0 0 30px;
+  }
+}
+.name__space {
+  display: inline;
+  letter-spacing: 15.5px;
+}
+.text__space {
+  display: inline;
+  letter-spacing: 6.5px;
+}
+
+
