@@ -43,7 +43,14 @@
               %th
                 カテゴリー
               %td
-                未実装
+                = link_to '#' do
+                  %span= @item.category.parent.parent.name
+                = link_to '#' do
+                  %i.fas.fa-chevron-right
+                  %span= @item.category.parent.name
+                = link_to '#' do
+                  %i.fas.fa-chevron-right
+                  %span= @item.category.name
             %tr
               %th
                 ブランド
