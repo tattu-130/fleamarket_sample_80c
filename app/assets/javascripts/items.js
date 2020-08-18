@@ -49,7 +49,6 @@ $(function(){
   // 新規出品時にプレビュー直下に削除ボタンを設置
   $('#previews').on('click', '.js-remove-previews', function() {
     const targetIndex = $(this).prev().data('index')
-    console.log(targetIndex);
     $(this).parent().remove();
     $(`.js-file_group[data-index="${targetIndex}"]`).remove();
     // プレビューが4枚以下ならラベルを表示
@@ -82,7 +81,6 @@ $(function(){
   // dropBox押下時にinputを呼び出す
   $('.dropBox').on('click', function() {
     lastIndex = $('.js-file_group:last').children('input')[0];
-    console.log(lastIndex);
     $(lastIndex).trigger("click");
   });
 });
