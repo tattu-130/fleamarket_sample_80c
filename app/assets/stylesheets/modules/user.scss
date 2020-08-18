@@ -263,12 +263,16 @@
     padding-top: 5px;
     border-bottom: 1px solid whitesmoke;
   }
+  &__box {
+    height: 141vh;
+    overflow: scroll;
+  }
   &__list {
     display: flex;
     flex-wrap: wrap;
   }
   &__list__box {
-    margin: 0 10px;
+    margin: 0 7px;
     height: 260px;
   }
 }

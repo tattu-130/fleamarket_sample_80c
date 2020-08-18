@@ -6,26 +6,27 @@
   .mypage__item
     .mypage__item__title
       いいね！一覧
-    - if @favorite.present?
-      .mypage__item__list
-        - @favorite.each do |item|
-          .mypage__item__list__box
-            =link_to item_path(item.id) do
-              =image_tag item.item_imgs[0].src.url, size: "220x170"
-              .content__list__name
-                = item.name
-              .content__list__price
-                = "#{item.price}円（税込）"
-              -if item.buyer.present?
-                .content__list__frame
-                  .content__list__sold
-                    SOLD
-    - else
-      .mypage__item__list__none
-        .mypage__item__list__none__icon
-          %i.fas.fa-heart
-        .mypage__item__list__none__text
-          いいね！がありません
+    .mypage__item__box
+      - if @favorite.present?
+        .mypage__item__list
+          - @favorite.each do |item|
+            .mypage__item__list__box
+              =link_to item_path(item.id) do
+                =image_tag item.item_imgs[0].src.url, size: "220x170"
+                .content__list__name
+                  = item.name
+                .content__list__price
+                  = "#{item.price}円（税込）"
+                -if item.buyer.present?
+                  .content__list__frame
+                    .content__list__sold
+                      SOLD
+      - else
+        .mypage__item__list__none
+          .mypage__item__list__none__icon
+            %i.fas.fa-heart
+          .mypage__item__list__none__text
+            いいね！がありません
 
 = render partial: "render/footer"
 
