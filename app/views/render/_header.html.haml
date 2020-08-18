@@ -15,4 +15,4 @@
         = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__down__button"
       - else
         = link_to "ログイン", new_user_session_path, method: :get, class: "header__down__button"
-        = link_to "新規会員登録", new_user_registration_path, method: :get, class: "header__down__button"
+        = link_to "新規会員登録", new_user_path, method: :get, class: "header__down__button"
