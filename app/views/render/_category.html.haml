@@ -4,9 +4,9 @@
       = link_to "#", class: "category__search search__btn" do
         %i.fas.fa-bars.category__icon
         カテゴリー
-      %ul.category__parent.category__list
-        - @parents.each do |parent|
-          %li
-            = link_to "#", class: "category__parent--name" do
-              = parent.name
-           
+      -# ヘッダーのカテゴリ選択機能は実装中なので一旦コメントアウトします。
+      -# %ul.category__parent.category__list
+      -#   - @parents.each do |parent|
+      -#     %li
+      -#       = link_to "#", class: "category__parent--name" do
+      -#         = parent.name
