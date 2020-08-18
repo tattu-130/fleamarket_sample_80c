@@ -6,19 +6,23 @@
   .mypage__item
     .mypage__item__title
       お気に入り！一覧
-    .mypage__item__list
-      - @favorite.each do |item|
-        .mypage__item__list__box
-          =link_to item_path(item.id) do
-            =image_tag item.item_imgs[0].src.url, size: "220x170"
-            .content__list__name
-              = item.name
-            .content__list__price
-              = "#{item.price}円（税込）"
-            -if item.buyer.present?
-              .content__list__frame
-                .content__list__sold
-                  SOLD
+    - if @favorite.present?
+      .mypage__item__list
+        - @favorite.each do |item|
+          .mypage__item__list__box
+            =link_to item_path(item.id) do
+              =image_tag item.item_imgs[0].src.url, size: "220x170"
+              .content__list__name
+                = item.name
+              .content__list__price
+                = "#{item.price}円（税込）"
+              -if item.buyer.present?
+                .content__list__frame
+                  .content__list__sold
+                    SOLD
+    - else
+      .mypage__item__list.mypage__item__list__none
+        お気に入り追加した商品はまだありません
 
 = render partial: "render/footer"
 

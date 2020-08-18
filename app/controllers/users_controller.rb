@@ -11,3 +11,5 @@ class UsersController < ApplicationController
     @user_des = current_user.destination
   end
 end
+
+

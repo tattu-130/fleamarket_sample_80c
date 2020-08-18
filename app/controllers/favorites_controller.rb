@@ -4,13 +4,12 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = current_user.favorites.create(favorite_params)
-    redirect_to item_path(@item)
+    @favorites_count = Favorite.where(item_id: params[:item_id]).count
   end
 
   def destroy
-    @favorite = Favorite.find_by(favorite_params, user_id: current_user.id)
-    @favorite.destroy
-    redirect_to item_path(@item)
+    current_user.favorites.find_by(item_id: params[:item_id]).destroy
+    @favorites_count = Favorite.where(item_id: params[:item_id]).count
   end
 
   private

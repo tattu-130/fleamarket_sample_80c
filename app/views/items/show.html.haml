@@ -74,7 +74,8 @@
               %td
                 = @item.delivery_days
       .optionalArea
-        = render "favorites/favorite"
+        .favorite
+          = render "favorites/favorite"
         .reportBtn
           %i.fa.fa-flag
           不適切な商品の情報

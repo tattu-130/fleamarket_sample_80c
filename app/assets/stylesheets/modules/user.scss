@@ -256,7 +256,6 @@
   height: 147vh;
   margin-left: 40px;
   &__title {
-    width: 50vw;
     height: 50px;
     font-size: 25px;
     font-weight: bold;
@@ -264,10 +263,22 @@
     padding-top: 5px;
     border-bottom: 1px solid whitesmoke;
   }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
   &__list__box {
+    margin: 0 10px;
     height: 260px;
   }
 }
-
+.mypage__item__list__none {
+  width: 40vw;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  border: 3px solid red;
+  margin: 50px 0 0 73px;
+}
 
 
