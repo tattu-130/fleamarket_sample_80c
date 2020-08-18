@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
+  belongs_to :category
   has_many :item_imgs, dependent: :destroy
   # belongs_to :user, class_name: 'User', foreign_key: 'buyer_id', optional: true
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
@@ -10,7 +11,7 @@ class Item < ApplicationRecord
     validates :name,            length: { maximum: 40 }
     validates :detail
     validates :price
-    # validates :category_id
+    validates :category_id
     validates :item_condition
     validates :postage
     validates :prefecture
