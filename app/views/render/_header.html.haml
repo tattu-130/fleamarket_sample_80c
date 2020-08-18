@@ -1,6 +1,7 @@
 .header
   .header__up
-    =image_tag "logo/logo.png", class: "header__up__logo"
+    = link_to root_path do
+      =image_tag "logo/logo.png", class: "header__up__logo"
     %input.login-input-text{placeholder: "キーワードから探す", class: "header__up__field"}
     =image_tag "icon/icon-search 1.png", class: "header__up__search"
   .header__down
