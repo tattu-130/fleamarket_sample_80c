@@ -39,7 +39,18 @@
             = f.label "カテゴリー"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.text_field :category_id, placeholder: "カテゴリ機能実装までの仮フォーム", disabled: "disabled"
+            - unless @category.present?
+              .category-select
+                = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "parent_category"
+              .category_select-children
+              .category_select-grandchildren
+            - else 
+              .category-select
+                = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:@category.id}, id: "parent_category"
+                = f.collection_select :category_id, @category_children, :id, :name, { include_blank: "---", selected:@child_category.id}, id: "child_category", class: "selected_child_category"
+                = f.collection_select :category_id, @category_grandchildren, :id, :name, { include_blank: "---", selected:@grandchild_category.id}, id: "grandchildren_wrapper", class: "selected_grandchild_category"
+              .category_select-children
+              .category_select-grandchildren
         .FormField
           .FormField__label--normal
             = f.label "ブランド（任意）"
