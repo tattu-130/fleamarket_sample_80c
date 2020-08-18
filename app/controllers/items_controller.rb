@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :update, :edit]
+  before_action :set_parents, only: [:index, :new, :create, :edit, :update, :show]
 
   def index
     # @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -9,8 +10,9 @@ class ItemsController < ApplicationController
   
   def new
     @item = Item.new
-    @item.item_imgs.new
+    @item.item_imgs.new  
   end
+
 
   def create
     @item = Item.new(item_params)
@@ -35,6 +37,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @grandchild_category = @item.category
+    @child_category = @grandchild_category.parent 
+    @category_parent = @child_category.parent
+    @category = Category.find(@category_parent.id)
+    @category_children = @item.category.parent.parent.children
+    @category_grandchildren = @item.category.parent.children
   end
 
   def update
@@ -44,6 +52,16 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
+  def category_children  
+    @category_children = Category.find(params[:parent_id]).children
+  end
+  
+  # Ajax通信で送られてきたデータをparamsで受け取り､childrenで子を取得
+
+  def category_grandchildren
+    @category_grandchildren = Category.find(params[:child_id]).children
+  end
   
   private
 
@@ -51,10 +69,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
   def item_params
     # params.require(:item).permit(:name, :price, item_imgs_attributes: [:src, :_destroy, :id]).merge(:user_id => current_user.id, :prefecture => params[:item][:prefecture].to_i, :delivery_days => params[:item][:delivery_days].to_i, :item_condition => params[:item][:item_condition].to_i)
 
-    params.require(:item).permit(:name, :detail, :price, :postage, :delivery_days, :item_condition, :prefecture, item_imgs_attributes: [:src, :_destroy, :id]).merge(:user_id => current_user.id)
+    params.require(:item).permit(:name, :detail, :price, :postage, :delivery_days, :item_condition, :category_id, :prefecture, item_imgs_attributes: [:src, :_destroy, :id]).merge(:user_id => current_user.id)
   end
 
 end
