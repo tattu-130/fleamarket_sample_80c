@@ -27,8 +27,8 @@ $(function(){
 
 
   $(document).on('change', '#parent_category', function(){  // 親セレクトボックスの選択肢を変えたらイベント発火
-    $('.test1').remove();
-    $('.test2').remove();
+    $('.selected_child_category').remove();
+    $('.selected_grandchild_category').remove();
     var parent_category_id = document.getElementById('parent_category').value; 
   // ↑ parent_category_idに選択した親のvalueを代入
     if (parent_category_id != ''){
@@ -62,7 +62,7 @@ $(function(){
 
   // document､もしくは親を指定しないと発火しない
   $(document).on('change', '#child_category', function(){
-    $('.test2').remove();
+    $('.selected_grandchild_category').remove();
     var child_category_id = document.getElementById('child_category').value;
     if (child_category_id != ''){
     $.ajax ({
