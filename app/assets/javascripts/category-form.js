@@ -6,7 +6,7 @@ $(function(){
   function appendChildrenBox(insertHTML){ // 子セレクトボックスのhtml作成
     var childSelectHtml = '';
       childSelectHtml = `<div class='item-select-wrapper' id= 'children_wrapper'>
-                        <select id="child_category" name="item[category_id]">
+                        <select id="child_category" name="item[category_id]" class="Sale__selectForm">
                         <option value="---">---</option>
                         ${insertHTML}
                         </select>
@@ -16,7 +16,7 @@ $(function(){
   function appendGrandChildrenBox(insertHTML){ // 孫セレクトボックスのhtml作成
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='item-select-wrapper' id= 'grandchildren_wrapper'>
-                              <select id="grandchild_category" name="item[category_id]">
+                              <select id="grandchild_category" name="item[category_id]" class="Sale__selectForm">
                               <option value="---">---</option>
                               ${insertHTML} 
                               </select>
