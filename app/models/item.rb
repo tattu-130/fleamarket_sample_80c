@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :users, through: :favorites
   has_many :item_imgs, dependent: :destroy
+  # belongs_to :user, class_name: 'User', foreign_key: 'buyer_id', optional: true
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
 
   with_options presence: true do
