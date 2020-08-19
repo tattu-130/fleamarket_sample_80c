@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
   belongs_to :category
   has_many :item_imgs, dependent: :destroy
   # belongs_to :user, class_name: 'User', foreign_key: 'buyer_id', optional: true

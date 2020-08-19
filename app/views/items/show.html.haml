@@ -28,7 +28,7 @@
             = link_to "SOLD OUT", "/", class: "itemBox__btn__buy"
         - elsif user_signed_in?
           %span
-            = link_to "購入画面へ進む", item_purchase_index_path(@item), class: "itemBox__btn__buy"
+            = link_to "購入画面へ進む", "#", class: "itemBox__btn__buy"
         - else 
           %span
             = link_to "ログインする", items_path, class: "itemBox__btn__login"
@@ -84,13 +84,13 @@
               %td
                 = @item.delivery_days
       .optionalArea
-        .favoriteBtn
-          %i.fa.fa-star
-          お気に入り 0
+        .favorite
+          = render "favorites/favorite"
         .reportBtn
           %i.fa.fa-flag
           不適切な商品の情報
     .commentBox
       コメント機能 未実装
             
-= render partial: "render/footer"
+= render "render/footer"
+

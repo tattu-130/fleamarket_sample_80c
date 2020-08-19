@@ -114,8 +114,14 @@
         margin-right: auto;
         padding: 5px;
         border-radius: 40px;
-        color: #3CCACE;
-        border: 1px solid #ffb340;      
+        color: black;
+        background-color: whitesmoke;
+        border: 1px solid whitesmoke;
+      }
+      .favoriteBtn--color {
+        color: red;
+        background-color: white;
+        border: 1px solid red;
       }
       .reportBtn {
         font-size: 14px;
@@ -134,3 +140,4 @@
     text-align: center;
   }
 }
+

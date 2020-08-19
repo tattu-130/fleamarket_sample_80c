@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items, except: :new do
+    resource :favorites, only: [:create, :destroy]
+  end
+  resources :users, only: [:index, :show] do
     member do
       get 'category_children', defaults:{ format: 'json'}
       get 'category_grandchildren', defaults:{ format: 'json'}

@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @favorites_count = Favorite.where(item_id: params[:id]).count
   end
 
   def destroy
