@@ -1,0 +1,102 @@
+.searchContainer {
+  background-color: whitesmoke;
+  // height: calc(100vh - 450px);
+  position: relative;
+  padding-top: 40px;
+}
+
+.innerContainer {
+  width: 1020px;
+  height: 100%;
+  margin: 0 auto 0;
+  display: flex;
+  color: #333;
+}
+
+.sideContainer {
+  width: 280px;
+  margin: 0 40px 0 0;
+}
+
+.sForm-group-container {
+  background-color: #fff;
+  padding: 16px;
+  margin-top: 40px;
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+}
+
+.sForm-group {
+  .sForm-label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px 0 5px;
+  }
+  select, input[type="text"] {
+    width: 100%;
+    padding: 0 16px;
+    height: 48px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+  }
+  input[type="number"] {
+    padding: 0 16px;
+    height: 48px;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+  }
+  &__checkBox {
+    display: inline-block;
+    // width: 48%;
+    vertical-align: middle;
+    font-size: 14px;
+    margin-right: 6px;
+  }
+  &__price {
+    
+    &--formSize {
+      width: 45%;
+    }
+    &--labelSize {
+      width: 10%;
+    }
+  }
+  &__btn {
+    height: 90px;
+    padding: 40px 0 0;
+  }
+}
+
+.btn-default {
+  display: block;
+  width: 45%;
+  line-height: 48px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  text-align: center;
+  cursor: pointer;
+}
+.redBtn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  float: right;
+}
+.clearBtn {
+  background-color: #aaa;
+  color: #fff;
+  border: solid 1px #aaa;
+  float: left;
+}
+
+.mainContainer {
+  background-color: yellowgreen;
+  width: 700px;
+}

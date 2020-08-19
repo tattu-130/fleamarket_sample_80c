@@ -3,7 +3,9 @@
     = link_to root_path do
       =image_tag "logo/logo.png", class: "header__up__logo"
     %input.login-input-text{placeholder: "キーワードから探す", class: "header__up__field"}
-    =image_tag "icon/icon-search 1.png", class: "header__up__search"
+    -# 詳細検索実装のため、仮のリンクを設置してます
+    = link_to search_items_path do
+      =image_tag "icon/icon-search 1.png", class: "header__up__search"
   .header__down
     .header__down__left
       .header__down__category

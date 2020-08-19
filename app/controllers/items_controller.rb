@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     @item.item_imgs.new  
   end
 
-
   def create
     @item = Item.new(item_params)
     # if @item.save!
@@ -64,6 +63,9 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find(params[:child_id]).children
   end
   
+  def search
+  end
+
   private
 
   def set_item
