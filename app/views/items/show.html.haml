@@ -1,4 +1,5 @@
 = render partial: "render/header"
+= render partial: "render/pankuzu"
 .show-wrapper
   .container
     .itemBox
@@ -47,13 +48,13 @@
                 カテゴリー
               %td
                 = link_to '#' do
-                  %span= @item.category.parent.parent.name
+                  %span{id: "parentCategory"}= @item.category.parent.parent.name
                 = link_to '#' do
                   %i.fas.fa-chevron-right
-                  %span= @item.category.parent.name
+                  %span{id: "childCategory"}= @item.category.parent.name
                 = link_to '#' do
                   %i.fas.fa-chevron-right
-                  %span= @item.category.name
+                  %span{id: "grandChildCategory"}= @item.category.name
             %tr
               %th
                 ブランド
