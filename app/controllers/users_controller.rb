@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :set_parents, only: [:index, :show]
 
   def index
-    @user = current_user.id
-    @favorite = Item.joins(:favorites).where(favorites: {user: @user})
+    @favorite = Item.joins(:favorites).where(favorites: {user: current_user.id})
   end
 
   def show
