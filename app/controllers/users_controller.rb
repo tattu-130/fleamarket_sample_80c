@@ -12,9 +12,6 @@ class UsersController < ApplicationController
     @user_des = current_user.destination
   end
 
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
 end
 
 private
