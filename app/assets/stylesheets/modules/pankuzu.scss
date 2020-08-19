@@ -1,0 +1,34 @@
+.breadCrumbs {
+  width: 100%;
+  border-top: solid 1px #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  position: relative;
+  padding: 0 60px;
+  ul {
+    padding: 17px 0 16px;
+    width: 100%;
+    max-width: 1040px;
+    font-size: 14px;
+    margin: 0 auto;
+    li {
+      padding: 0 10px 0 0;
+      float: left;
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      i {
+        display: inline-block;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+  // スペースを取るための疑似要素
+  ul:after {
+    display: block;
+    content: "";  // 疑似要素の空値
+    clear: both;  // floatを解除
+  }
+}
