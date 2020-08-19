@@ -250,3 +250,41 @@
 }
 
 
+.mypage__item {
+  background-color: white;
+  width: 50vw;
+  height: 147vh;
+  margin-left: 40px;
+  &__title {
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5px;
+    border-bottom: 1px solid whitesmoke;
+  }
+  &__box {
+    height: 141vh;
+    overflow: scroll;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__list__box {
+    margin: 0 7px;
+    height: 260px;
+  }
+}
+.mypage__item__list__none {
+  color: #ddd;
+  text-align: center;
+  &__icon {
+    font-size: 300px;
+  }
+  &__text {
+    font-size: 60px;
+  }
+}
+
+
