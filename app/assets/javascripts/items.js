@@ -1,4 +1,9 @@
 $(function(){
+  // 編集画面表示時、プレビューが5枚あったらラベルを隠す
+  let countEditPreviews = $('.previewBox').length;
+  if (countEditPreviews >= 5){
+    $('.dropBox').hide();
+  }
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
