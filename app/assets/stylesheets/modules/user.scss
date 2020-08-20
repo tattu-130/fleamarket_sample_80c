@@ -80,6 +80,7 @@
   }
   &__input--width {
     width: 600px;
+    padding: 5px 0 0 10px;
   }
 }
 .FormField--flex {
@@ -205,7 +206,7 @@
 .mypage__right {
   background-color: white;
   width: 50vw;
-  height: 70vh;
+  height: 100vh;
   margin-left: 40px;
 }
 .mypage__right__top {
@@ -255,6 +256,12 @@
 .text__space {
   display: inline;
   letter-spacing: 6.5px;
+}
+.introduction {
+  width: 46vw;
+  border: 5px solid whitesmoke;
+  padding: 5px;
+  margin-top: 10px;
 }
 
 

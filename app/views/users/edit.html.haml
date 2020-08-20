@@ -39,9 +39,9 @@
             = f.file_field :user_image
         .FormField
           .FormField__label--normal
-            = f.label "自己紹介"
+            = f.label "自己紹介（300字以内）"
           .FormField__input--normal.FormField--flex
-            = f.text_area :introduction, rows: "10", class: "FormField__input--width", placeholder: "例)紹介文を入力してください"
+            = f.text_area :introduction, rows: "10", class: "FormField__input--width", maxlength: "300", placeholder: "例)紹介文を入力してください"
 
         
         .actions

@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @nickname = current_user.nickname
-    @image = current_user.user_image
-    @user_des = current_user.destination
+    @user = current_user
+    @nickname = @user.nickname
+    @image = @user.user_image
+    @user_des = @user.destination
   end
 
   def edit
