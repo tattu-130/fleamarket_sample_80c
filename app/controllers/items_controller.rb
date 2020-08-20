@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :update, :edit]
   before_action :set_parents, only: [:index, :new, :create, :edit, :update, :show]
+  before_action :set_search, only: [:index, :detail_search]
 
   def index
     # @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -69,6 +70,11 @@ class ItemsController < ApplicationController
   end
   
   def detail_search
+  end
+  
+  private
+  
+  def set_search
     if params[:q].present?
       @q = Item.ransack(params[:q])
       @items = @q.result(distict: true)
@@ -78,8 +84,6 @@ class ItemsController < ApplicationController
       @items = Item.all
     end
   end
-
-  private
 
   def set_item
     @item = Item.find(params[:id])
