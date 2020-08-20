@@ -78,6 +78,9 @@
       position: relative;
     }
   }
+  &__input--width {
+    width: 600px;
+  }
 }
 .FormField--flex {
   display: flex;
