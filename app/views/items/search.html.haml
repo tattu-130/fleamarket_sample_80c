@@ -48,6 +48,38 @@
               .clearBtn.btn-default クリア
               = f.submit "完了", class: "btn-default redBtn"
     .mainContainer
-      %h1 ここに検索結果を表示
+      .search
+        -if @item["keyword"] != ""
+          %b.search__title=@item["keyword"]
+          %span.search__result の検索結果
+          .mypage__item__list
+            - @items.each do |item|
+              .mypage__item__list__box
+                =link_to item_path(item.id) do
+                  =image_tag item.item_imgs[0].src.url, size: "220x170"
+                  .content__list__name
+                    = item.name
+                  .content__list__price
+                    = "#{item.price}円（税込）"
+                  -if item.buyer.present?
+                    .content__list__frame
+                      .content__list__sold
+                        SOLD
+        -else
+          %b.search__title 全商品
+          %span.search__result の検索結果
+          .mypage__item__list
+            - @items.each do |item|
+              .mypage__item__list__box
+                =link_to item_path(item.id) do
+                  =image_tag item.item_imgs[0].src.url, size: "220x170"
+                  .content__list__name
+                    = item.name
+                  .content__list__price
+                    = "#{item.price}円（税込）"
+                  -if item.buyer.present?
+                    .content__list__frame
+                      .content__list__sold
+                        SOLD
 = render partial: "render/footer"
 
