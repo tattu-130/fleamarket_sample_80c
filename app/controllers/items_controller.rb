@@ -63,6 +63,11 @@ class ItemsController < ApplicationController
   def category_grandchildren
     @category_grandchildren = Category.find(params[:child_id]).children
   end
+
+  def search
+    @items = Item.search(params[:keyword])
+    @item = params.permit(:keyword)
+  end
   
   private
 
