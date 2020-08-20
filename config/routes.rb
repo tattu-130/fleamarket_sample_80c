@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items, except: :new do
+    collection do
+      get 'search'
+    end
     resources :purchase, only: [:index] do
       collection do
         post 'pay', to: 'purchase#pay'
