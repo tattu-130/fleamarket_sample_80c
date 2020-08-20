@@ -68,7 +68,15 @@ class ItemsController < ApplicationController
     @item = params.permit(:keyword)
   end
   
-  def search
+  def detail_search
+    if params[:q].present?
+      @q = Item.ransack(params[:q])
+      @items = @q.result(distict: true)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @q = Item.ransack()
+      @items = Item.all
+    end
   end
 
   private

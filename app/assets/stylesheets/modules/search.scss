@@ -21,7 +21,7 @@
 .sForm-group-container {
   background-color: #fff;
   padding: 16px;
-  margin-top: 40px;
+  margin: 40px 0;
   h3 {
     font-size: 16px;
     font-weight: bold;
@@ -36,7 +36,7 @@
     font-weight: bold;
     padding: 20px 0 5px;
   }
-  select, input[type="text"] {
+  select, input[type="text"], input[type="search"] {
     width: 100%;
     padding: 0 16px;
     height: 48px;
@@ -71,6 +71,10 @@
   }
 }
 
+input.Hidden {
+  display: none;
+}
+
 .btn-default {
   display: block;
   width: 45%;
@@ -97,6 +101,6 @@
 }
 
 .mainContainer {
-  background-color: yellowgreen;
   width: 700px;
+  display: flex;
 }

@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    collection do
+      get 'detail_search'
+      post 'detail_search'
+    end
   end
   resources :users, only: [:index, :show] do
     resources :destinations, only: [:new, :create, :destroy]
