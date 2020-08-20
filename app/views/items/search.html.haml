@@ -2,7 +2,7 @@
 %main.searchContainer
   .innerContainer
     .sideContainer
-      = form_with url: "#", class: "sForm"  do |f|
+      = form_with url: search_items_path, method: :get, class: "sForm", local: true do |f|
         .sForm-group
           = f.select :sort_order, [['価格の安い順', 1], ['価格の高い順', 2], ['出品の新しい順', 3], ['出品の古い順', 1]],{ include_blank: "並び替え", class: "select-default" }
         .sForm-group-container
@@ -31,7 +31,7 @@
                 = status
           .sForm-group
             = f.label :postage, "配送料の負担", class: "sForm-label"
-            - statusArray = ["全て", "着払い（購入者負担）", "送料込み（出品者負担）"]
+            - statusArray = ["送料込み（出品者負担）", "着払い（購入者負担）"]
             - statusArray.each do |postage|
               .sForm-group__checkBox
                 = f.check_box :postage, {multiple: true}, postage, nil
