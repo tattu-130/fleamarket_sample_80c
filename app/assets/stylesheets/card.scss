@@ -1,3 +1,49 @@
-// Place all the styles related to the card controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.frame{
+  background-color: #EEEEEE;
+  height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_main{
+  background-color: white;
+  height: 50vh;
+  width: 60vw;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title{
+  font-size: 30px;
+  padding: 20px 0 10px;
+  font-weight: bold;
+}
+
+.num{
+  font-size: 25px;
+  padding: 10px;
+}
+
+.label{
+  font-size: 20px;
+}
+
+.card_info{
+  display: flex;
+  margin: 8px;
+}
+
+.button{
+  background-color: #00BFFF;
+  color: white;
+  margin-top: 10px;
+  font-size: 23px;
+}
+
+.form{
+  width: 180px;
+}
