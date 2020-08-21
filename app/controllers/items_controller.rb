@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :update, :edit]
   before_action :set_parents, only: [:index, :new, :create, :edit, :update, :show]
+  before_action :set_search, only: [:index, :show, :detail_search]
 
   def index
     # @items = Item.includes(:item_imgs).order('created_at DESC')
@@ -12,7 +13,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_imgs.new  
   end
-
 
   def create
     @item = Item.new(item_params)
@@ -69,7 +69,21 @@ class ItemsController < ApplicationController
     @item = params.permit(:keyword)
   end
   
+  def detail_search
+  end
+  
   private
+  
+  def set_search
+    if params[:q].present?
+      @q = Item.ransack(params[:q])
+      @items = @q.result(distict: true)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @q = Item.ransack()
+      @items = Item.all
+    end
+  end
 
   def set_item
     @item = Item.find(params[:id])
@@ -80,8 +94,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    # params.require(:item).permit(:name, :price, item_imgs_attributes: [:src, :_destroy, :id]).merge(:user_id => current_user.id, :prefecture => params[:item][:prefecture].to_i, :delivery_days => params[:item][:delivery_days].to_i, :item_condition => params[:item][:item_condition].to_i)
-
     params.require(:item).permit(:name, :detail, :price, :postage, :delivery_days, :item_condition, :category_id, :prefecture, item_imgs_attributes: [:src, :_destroy, :id]).merge(:user_id => current_user.id)
   end
 
