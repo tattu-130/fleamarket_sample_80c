@@ -15,7 +15,6 @@ $(function(){
     } else {
       $('.count_number').css({
           color:'#000000',
-          fontWeight:'normal'
       });
     }
   });
