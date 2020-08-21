@@ -4,8 +4,12 @@
 
   .purchase_main
     %h2 購入が完了しました！
-    .item_name 
-      = @item.name
-    .item_price
-      = "¥#{@item.price}"
+    .item_info
+      .itemBox__photo--top
+        =image_tag(@item.item_imgs[0].src.url, size: "100x100", class: "itemBox__photo--top__img")
+      .itemBox__info
+        .item_name
+          = @item.name
+        .item_price
+          = "¥#{@item.price}"
     = link_to "トップへ戻る", "/"
