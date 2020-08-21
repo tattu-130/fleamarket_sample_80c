@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items, except: :new do
+    collection do
+      get 'search'
+    end
     resources :purchase, only: [:index] do
       collection do
         post 'pay', to: 'purchase#pay'
@@ -13,6 +16,13 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults:{ format: 'json'}
     end
     resource :favorites, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
+    collection do
+      get 'detail_search'
+      post 'detail_search'
+    end
   end
   resources :users, only: [:index, :show] do
     resources :destinations, only: [:new, :create, :destroy]
