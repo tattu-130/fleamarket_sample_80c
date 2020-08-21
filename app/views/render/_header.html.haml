@@ -3,10 +3,16 @@
     = link_to root_path do
       =image_tag "logo/logo.png", class: "header__up__logo"
     .header__up__box
-      = form_with url: search_items_path, method: :get, local: true do |form|
+      = search_form_for @q, url: detail_search_items_path do |f|
         .header__up__form
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "header__up__field"
-          %input{alt: "検索", src: "/assets/icon/icon-search 1.png", type: "image", class: "header__up__search"}
+          = f.search_field :name_cont, class: "header__up__field"
+          = f.submit type: "image", src: "/assets/icon/icon-search 1.png", class: "header__up__search" 
+
+      -# ransackを使わない検索機能は以下です
+      -# = form_with url: search_items_path, method: :get, local: true do |form|
+      -#   .header__up__form
+          -# = form.text_field :keyword, placeholder: "キーワードから探す", class: "header__up__field"
+          -# %input{alt: "検索", src: "/assets/icon/icon-search 1.png", type: "image", class: "header__up__search"}
   .header__down
     .header__down__left
       .header__down__category
