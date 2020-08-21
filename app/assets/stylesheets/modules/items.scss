@@ -90,7 +90,9 @@
 .reason__select {
   display: flex;
   justify-content: space-around;
-  position: relative;
+  &__box {
+    position: relative;
+  }
   &__one {
     margin-left: 180px;
     width: 279px;
@@ -113,15 +115,16 @@
   }
   &__number__one {
     position: absolute;
-    left: 218px;
+    top: 0px;
+    left: 180px;
   }
   &__number__two {
     position: absolute;
-    left: 573px;
+    top: 0px;
   }
   &__number__three {
     position: absolute;
-    right: 437px;
+    top: 0px;
   }
 }
 .reason__under {
