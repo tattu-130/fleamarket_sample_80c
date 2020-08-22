@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:destroy, :show]
+  before_action :set_search, only: [:new, :show]
 
   require "payjp"
 
@@ -50,5 +51,16 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def set_search
+    if params[:q].present?
+      @q = Item.ransack(params[:q])
+      @items = @q.result(distict: true)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @q = Item.ransack()
+      @items = Item.all
+    end
   end
 end
