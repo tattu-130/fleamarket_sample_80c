@@ -1,5 +1,8 @@
 class Item < ApplicationRecord
-  belongs_to :user, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :user
+  has_many :favorites, dependent: :destroy
+  has_many :users, through: :favorites
+  belongs_to :category
   has_many :item_imgs, dependent: :destroy
   # belongs_to :user, class_name: 'User', foreign_key: 'buyer_id', optional: true
   accepts_nested_attributes_for :item_imgs, allow_destroy: true
@@ -8,7 +11,7 @@ class Item < ApplicationRecord
     validates :name,            length: { maximum: 40 }
     validates :detail
     validates :price
-    # validates :category_id
+    validates :category_id
     validates :item_condition
     validates :postage
     validates :prefecture
@@ -35,5 +38,13 @@ class Item < ApplicationRecord
   enum item_condition: {
     "新品、未使用": 0, "未使用に近い": 1, "目立った傷や汚れなし": 2, "やや傷や汚れあり": 3, "傷や汚れあり": 4, "全体的に状態が悪い": 5
   }
+
+  def self.search(search)
+    if search != ""
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
 
 end

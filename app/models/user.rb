@@ -6,7 +6,8 @@ class User < ApplicationRecord
   
   has_many :sns_credentials
   has_many :items
-  # belongs_to :destination, optional: true
+  has_many :favorites, dependent: :destroy
+  has_many :fav_items, through: :favorites, source: :item
   has_one :destination
   
   # 大文字小文字を区別しない
