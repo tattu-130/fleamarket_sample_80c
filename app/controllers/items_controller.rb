@@ -30,27 +30,39 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-      redirect_to items_path
-    else
-      render :show
+    if user_signed_in? && @item.user_id == current_user.id
+      if @item.destroy
+        redirect_to items_path
+      else
+        render :show
+      end
+    else 
+      redirect_to new_user_session_path
     end
   end
 
   def edit
-    @grandchild_category = @item.category
-    @child_category = @grandchild_category.parent 
-    @category_parent = @child_category.parent
-    @category = Category.find(@category_parent.id)
-    @category_children = @item.category.parent.parent.children
-    @category_grandchildren = @item.category.parent.children
+    if user_signed_in? && @item.user_id == current_user.id
+      @grandchild_category = @item.category
+      @child_category = @grandchild_category.parent 
+      @category_parent = @child_category.parent
+      @category = Category.find(@category_parent.id)
+      @category_children = @item.category.parent.parent.children
+      @category_grandchildren = @item.category.parent.children
+    else 
+      redirect_to new_user_session_path
+    end
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to root_path
+    if user_signed_in? && @item.user_id == current_user.id
+      if @item.update(item_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to new_user_session_path
     end
   end
 
