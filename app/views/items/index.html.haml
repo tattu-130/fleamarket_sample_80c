@@ -1,14 +1,7 @@
 = render partial: "render/header"
 
 .main
-  %ul.slider
-    %li
-      =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
-    %li
-      =image_tag "pict/2.jpeg", class: "main__picture" 
-    %li
-      =image_tag "pict/3.jpeg", class: "main__picture" 
-
+  =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
   .main__word
     .main__subject
       人生を変えるフリマアプリ
@@ -102,7 +95,7 @@
     - @items.each do |item|
       .content__list__box
         =link_to item_path(item.id) do
-          =image_tag item.item_imgs[0].src.url, size: "220x170", class: "content__list__image"
+          =image_tag item.item_imgs[0].src.url, size: "220x170"
           .content__list__name
             = item.name
           .content__list__price
@@ -121,7 +114,7 @@
     - @items.each do |item|
       .content__list__box
         =link_to item_path(item.id) do
-          =image_tag item.item_imgs[0].src.url, size: "220x170", class: "content__list__image"
+          =image_tag item.item_imgs[0].src.url, size: "220x170"
           .content__list__name
             = item.name
           .content__list__price

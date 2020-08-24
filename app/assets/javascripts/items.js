@@ -88,11 +88,4 @@ $(function(){
     lastIndex = $('.js-file_group:last').children('input')[0];
     $(lastIndex).trigger("click");
   });
-  
-  $('.slider').slick({
-    autoplay: true,
-    autoplaySpeed: 6000,
-    dots: true,
-    arrows: false,
-  });
 });
