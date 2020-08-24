@@ -5,8 +5,12 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: :show if card.exists?
+    if user_signed_in?
+      card = Card.where(user_id: current_user.id)
+      redirect_to action: :show if card.exists?
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create #payjpとCardのデータベース作成を実施します。
