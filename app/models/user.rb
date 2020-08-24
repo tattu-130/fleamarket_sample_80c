@@ -18,4 +18,5 @@ class User < ApplicationRecord
   has_many :items
   # belongs_to :destination, optional: true
   has_one :destination
+  belongs_to :card
 end
