@@ -1,11 +1,16 @@
 class CardsController < ApplicationController
   before_action :set_card, only: [:destroy, :show]
+  before_action :set_search, only: [:new, :show]
 
   require "payjp"
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: :show if card.exists?
+    if user_signed_in?
+      card = Card.where(user_id: current_user.id)
+      redirect_to action: :show if card.exists?
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create #payjpとCardのデータベース作成を実施します。
@@ -50,5 +55,16 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.find_by(user_id: current_user.id)
+  end
+
+  def set_search
+    if params[:q].present?
+      @q = Item.ransack(params[:q])
+      @items = @q.result(distict: true)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @q = Item.ransack()
+      @items = Item.all
+    end
   end
 end

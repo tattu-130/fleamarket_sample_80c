@@ -1,10 +1,14 @@
--# 齋藤テスト用
--# = render @items
-
 = render partial: "render/header"
 
 .main
-  =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
+  %ul.slider
+    %li
+      =image_tag "pict/bg-mainVisual-pict_pc.jpg", class: "main__picture" 
+    %li
+      =image_tag asset_path('pict/2.jpeg'), class: "main__picture" 
+    %li
+      =image_tag asset_path('pict/3.jpeg'), class: "main__picture" 
+
   .main__word
     .main__subject
       人生を変えるフリマアプリ
@@ -18,15 +22,18 @@
       %b FURIMAが選ばれる3つの理由
       .reason__box__line 
   .reason__select
-    =image_tag "pict/pict-reason-01.jpg" , class: "reason__select__one"
-    .reason__select__number.reason__select__number__one
-      1
-    =image_tag "pict/pict-reason-02.jpg", class: "reason__select__two"
-    .reason__select__number.reason__select__number__two
-      2
-    =image_tag "pict/pict-reason-03.jpg", class: "reason__select__three"
-    .reason__select__number.reason__select__number__three
-      3
+    .reason__select__box
+      =image_tag "pict/pict-reason-01.jpg" , class: "reason__select__one"
+      .reason__select__number.reason__select__number__one
+        1
+    .reason__select__box
+      =image_tag "pict/pict-reason-02.jpg", class: "reason__select__two"
+      .reason__select__number.reason__select__number__two
+        2
+    .reason__select__box
+      =image_tag "pict/pict-reason-03.jpg", class: "reason__select__three"
+      .reason__select__number.reason__select__number__three
+        3
   .reason__under
     .reason__under__one
       %span.reason__under__important.reason__under__important__one
@@ -95,7 +102,7 @@
     - @items.each do |item|
       .content__list__box
         =link_to item_path(item.id) do
-          =image_tag item.item_imgs[0].src.url, size: "220x170"
+          =image_tag item.item_imgs[0].src.url, size: "220x170", class: "content__list__image"
           .content__list__name
             = item.name
           .content__list__price
@@ -114,7 +121,7 @@
     - @items.each do |item|
       .content__list__box
         =link_to item_path(item.id) do
-          =image_tag item.item_imgs[0].src.url, size: "220x170"
+          =image_tag item.item_imgs[0].src.url, size: "220x170", class: "content__list__image"
           .content__list__name
             = item.name
           .content__list__price

@@ -78,6 +78,10 @@
       position: relative;
     }
   }
+  &__input--width {
+    width: 600px;
+    padding: 5px 0 0 10px;
+  }
 }
 .FormField--flex {
   display: flex;
@@ -202,7 +206,7 @@
 .mypage__right {
   background-color: white;
   width: 50vw;
-  height: 70vh;
+  height: 100vh;
   margin-left: 40px;
 }
 .mypage__right__top {
@@ -229,6 +233,11 @@
     font-weight: bold;
   }
 }
+.fas.fa-user {
+  color: red;
+  font-size: 75px;
+  margin: 10px 0 0 17px;
+}
 .mypage__right__under {
   width: 25vw;
   font-size: 30px;
@@ -247,6 +256,19 @@
 .text__space {
   display: inline;
   letter-spacing: 6.5px;
+}
+.introduction {
+  width: 46vw;
+  border: 5px solid whitesmoke;
+  padding: 5px;
+  margin-top: 10px;
+}
+.count_text {
+  display: inline;
+  margin-left: 465px;
+}
+.count_number {
+  display: inline;
 }
 
 
@@ -272,7 +294,8 @@
     flex-wrap: wrap;
   }
   &__list__box {
-    margin: 0 7px;
+    background-color: #fff;
+    margin: 0 10px 10px 0;
     height: 260px;
   }
 }
@@ -286,5 +309,6 @@
     font-size: 60px;
   }
 }
+
 
 

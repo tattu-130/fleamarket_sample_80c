@@ -120,5 +120,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_051231) do
   add_foreign_key "favorites", "items"
   add_foreign_key "favorites", "users"
   add_foreign_key "item_imgs", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
 end

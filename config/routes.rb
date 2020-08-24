@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items, except: :new do
+    collection do
+      get 'search'
+    end
     resources :purchase, only: [:index] do
       collection do
         post 'pay', to: 'purchase#pay'
@@ -14,8 +17,15 @@ Rails.application.routes.draw do
     end
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create]
+    collection do
+      get 'search'
+    end
+    collection do
+      get 'detail_search'
+      post 'detail_search'
+    end
   end
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resources :destinations, only: [:new, :create, :destroy]
     resources :items, only: :new 
   end

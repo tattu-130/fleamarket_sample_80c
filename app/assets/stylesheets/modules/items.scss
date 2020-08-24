@@ -15,16 +15,21 @@
     margin: 0 30px 0 190px;
     width: 140px;
   }
+  &__form {
+    display: flex;
+  }
   &__field {
     width: 57vw;
     height: 35px;
     padding-left: 10px;
+    display: block;
   }
   &__search {
     background-color: #3CCACE;
     padding: 8px;
     width: 35px;
     height: 35px;
+    // background-image: url("icon/icon-search_1.png");
   }
 }
 .header__down {
@@ -86,7 +91,9 @@
 .reason__select {
   display: flex;
   justify-content: space-around;
-  position: relative;
+  &__box {
+    position: relative;
+  }
   &__one {
     margin-left: 180px;
     width: 279px;
@@ -109,15 +116,16 @@
   }
   &__number__one {
     position: absolute;
-    left: 218px;
+    top: 0px;
+    left: 180px;
   }
   &__number__two {
     position: absolute;
-    left: 573px;
+    top: 0px;
   }
   &__number__three {
     position: absolute;
-    right: 437px;
+    top: 0px;
   }
 }
 .reason__under {
@@ -256,8 +264,14 @@
   display: flex;
   justify-content: center;
   &__box {
+    box-shadow: 10px 10px lightgrey;
+    border-radius: 10px;
     background-color: white;
     height: 260px;
+    margin-left: 25px;
+  }
+  &__image {
+    border-radius: 10px 10px 0 0;
   }
   &__name {
     color: black;
@@ -346,4 +360,15 @@
     margin-top: 80px;
   }
 }
+
+.search {
+  width: 100vw;
+  // height: 168vh;
+  // overflow: scroll;
+  &__title {
+    font-size: 35px;
+    margin-left: 30px;
+  }
+}
+
 
