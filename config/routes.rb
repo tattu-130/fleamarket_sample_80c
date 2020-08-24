@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults:{ format: 'json'}
     end
     resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
   resources :users, only: [:index, :show] do
     resources :destinations, only: [:new, :create, :destroy]

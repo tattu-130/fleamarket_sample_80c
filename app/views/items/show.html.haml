@@ -55,15 +55,11 @@
                 = link_to '#' do
                   %i.fas.fa-chevron-right
                   %span{id: "grandChildCategory"}= @item.category.name
-            %tr
-              %th
-                ブランド
-              %td
-                未実装
-            %tr
-              %th
-                商品のサイズ
-              %td
+            -# %tr
+            -#   %th
+            -#     ブランド
+            -#   %td
+            -#     未実装
             %tr
               %th
                 商品の状態
@@ -78,7 +74,7 @@
               %th
                 発送元の地域
               %td
-                = @item.post_code
+                = @item.prefecture
             %tr
               %th
                 発送日の目安
@@ -91,7 +87,30 @@
           %i.fa.fa-flag
           不適切な商品の情報
     .commentBox
-      コメント機能 未実装
-            
+      .commentList
+        - @commentALL.each do |c|
+          .commentBody
+            .commentUserName           
+              = c.user.nickname
+              - if c.user_id ==  @item.user_id
+                .seller
+                  出品者
+            .comment
+              = c.comment
+              .commentTime
+                
+                = c.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      .commentForm
+        = form_with url: item_comments_path(@item.id), method: :POST ,html: {class: "comment-Form"}, local: true do |f|
+          = f.text_area :comment, class: 'inputComment', placeholder: 'type a comment', row: '5'
+          .noticeMsg
+            %p 相手のことを考え丁寧なコメントを心がけましょう。
+            %p 不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          -if user_signed_in?
+            %button.commentBtn{type: "submit"}
+              %i.fa.fa-comment
+              コメントする
+          - else 
+            %span
+              = link_to "ログインしてコメントする", items_path, class: "commentBtnNotSignIn"
 = render "render/footer"
-
