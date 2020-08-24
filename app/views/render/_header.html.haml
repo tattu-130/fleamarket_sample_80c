@@ -6,7 +6,7 @@
       = search_form_for @q, url: detail_search_items_path do |f|
         .header__up__form
           = f.search_field :name_cont, class: "header__up__field"
-          = f.submit type: "image", src: "icon/icon-search_1.png", class: "header__up__search" 
+          = f.submit type: "image", src: "app/assets/images/icon/icon-search_1.png", class: "header__up__search" 
 
       -# ransackを使わない検索機能は以下です
       -# = form_with url: search_items_path, method: :get, local: true do |form|
