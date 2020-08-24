@@ -1,27 +1,29 @@
 = render 'error_messages'
 .AccountContainer
-  = render 'devise/shared/header'
+  = render "devise/shared/header"
   .AccountPage
     .AccountPage__form.Sale__form
       = form_with model: @item, local: true do |f|
+        .FormField__label--normal
+          = f.label "画像の選択（5枚まで選択可能です）"
+          %span.requiredLabel 必須
         #image-box
           #previews
             - if @item.persisted?
               - @item.item_imgs.each_with_index do |image, i|
-                = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
-          .FormField
-            .FormField__input--normal
-              = f.fields_for :item_imgs do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.file_field :src, class: 'js-file'
-                  %br/
-                  %span.js-remove 削除
-                - if @item.persisted?
-                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              - if @item.persisted?
-                .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
-                  = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
+                .previewBox
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: "100"
                   .js-remove 削除
+            .dropBox
+              %i.fas.fa-camera
+          = f.fields_for :item_imgs do |image|
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :src, class: 'js-file'
+            - if @item.persisted?
+              = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{"data-index" => "#{@item.item_imgs.count}"}
+              = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
         .FormField
           .FormField__label--normal
             = f.label "商品名"
@@ -39,7 +41,18 @@
             = f.label "カテゴリー"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.text_field :category_id, placeholder: "カテゴリ機能実装までの仮フォーム", disabled: "disabled"
+            - unless @category.present?
+              .category-select
+                = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "parent_category", class: "Sale__selectForm"
+              .category_select-children
+              .category_select-grandchildren
+            - else 
+              .category-select
+                = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:@category.id}, id: "parent_category", class: "Sale__selectForm"
+                = f.collection_select :category_id, @category_children, :id, :name, { include_blank: "---", selected:@child_category.id}, id: "child_category", class: "selected_child_category Sale__selectForm"
+                = f.collection_select :category_id, @category_grandchildren, :id, :name, { include_blank: "---", selected:@grandchild_category.id}, id: "grandchildren_wrapper", class: "selected_grandchild_category Sale__selectForm"
+              .category_select-children
+              .category_select-grandchildren
         .FormField
           .FormField__label--normal
             = f.label "ブランド（任意）"
@@ -50,25 +63,25 @@
             = f.label "商品の状態"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.select :item_condition, Item.item_conditions.keys, {prompt: "選択してください"}
+            = f.select :item_condition, Item.item_conditions.keys, {prompt: "選択してください"}, class: "Sale__selectForm "
         .FormField
           .FormField__label--normal
             = f.label "配送料の負担"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.select :postage, Item.postages.keys, {prompt: "選択してください"}
+            = f.select :postage, Item.postages.keys, {prompt: "選択してください"}, class: "Sale__selectForm "
         .FormField
           .FormField__label--normal
             = f.label "発送元の地域"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.select :prefecture, Item.prefectures.keys, {prompt: "選択してください"}
+            = f.select :prefecture, Item.prefectures.keys, {prompt: "選択してください"}, class: "Sale__selectForm "
         .FormField
           .FormField__label--normal
             = f.label "発送までの日数"
             %span.requiredLabel 必須
           .FormField__input--normal
-            = f.select :delivery_days, Item.delivery_days.keys, {prompt: "選択してください"}
+            = f.select :delivery_days, Item.delivery_days.keys, {prompt: "選択してください"}, class: "Sale__selectForm "
         .FormField
           .FormField__label--normal
             = f.label "価格"

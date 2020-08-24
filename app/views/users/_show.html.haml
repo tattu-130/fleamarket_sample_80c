@@ -16,7 +16,7 @@
       やることリスト
     .mypage__left__sign
       = icon("fas", "chevron-right")
-=link_to "#" do
+=link_to users_path do
   .mypage__left__box
     .mypage__left__text
       いいね！一覧
@@ -90,7 +90,7 @@
       = icon("fas", "chevron-right")
 .mypage__left__box__title
   設定
-=link_to "#" do
+=link_to edit_user_path(current_user.id)  do
   .mypage__left__box
     .mypage__left__text
       プロフィール

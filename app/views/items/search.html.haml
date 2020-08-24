@@ -1,0 +1,85 @@
+= render partial: "render/header"
+%main.searchContainer
+  .innerContainer
+    .sideContainer
+      = form_with url: search_items_path, method: :get, class: "sForm", local: true do |f|
+        .sForm-group
+          = f.select :sort_order, [['価格の安い順', 1], ['価格の高い順', 2], ['出品の新しい順', 3], ['出品の古い順', 1]],{ include_blank: "並び替え", class: "select-default" }
+        .sForm-group-container
+          %h3 詳細検索
+          .sForm-group
+            = f.label :keyword, "キーワードを追加する", class: "sForm-label"
+            = f.text_field :keyword, placeholder: "例）値下げ"
+          .sForm-group
+            = f.label :category, "カテゴリーを選択する", class: "sForm-label"
+            = f.text_field :category, placeholder: "未実装", disabled: "disabled"
+          .sForm-group
+            = f.label :brand, "ブランド名から探す", class: "sForm-label"
+            = f.text_field :brand, placeholder: "未実装", disabled: "disabled"
+          .sForm-group
+            .sForm-group__price
+              = f.label "価格", class: "sForm-label"
+              = f.number_field :price_min, placeholder: "¥ Min", class: "sForm-group__price--formSize"
+              %span.sForm-group__price--labelSize ~
+              = f.number_field :price_max, placeholder: "¥ Max", class: "sForm-group__price--formSize"
+          .sForm-group
+            = f.label :item_condition, "商品の状態", class: "sForm-label"
+            - statusArray = ["全て", "新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"]
+            - statusArray.each do |status|
+              .sForm-group__checkBox
+                = f.check_box :item_condition, {multiple: true}, status, nil
+                = status
+          .sForm-group
+            = f.label :postage, "配送料の負担", class: "sForm-label"
+            - statusArray = ["送料込み（出品者負担）", "着払い（購入者負担）"]
+            - statusArray.each do |postage|
+              .sForm-group__checkBox
+                = f.check_box :postage, {multiple: true}, postage, nil
+                = postage
+          .sForm-group
+            = f.label :buyer, "販売状況", class: "sForm-label"
+            - statusArray = ["全て", "販売中", "売り切れ"]
+            - statusArray.each do |buyer|
+              .sForm-group__checkBox
+                = f.check_box :buyer, {multiple: true}, buyer, nil
+                = buyer
+          .sForm-group
+            .sForm-group__btn
+              .clearBtn.btn-default クリア
+              = f.submit "完了", class: "btn-default redBtn"
+    .mainContainer
+      .search
+        -if @item["keyword"] != ""
+          %b.search__title=@item["keyword"]
+          %span.search__result の検索結果
+          .mypage__item__list
+            - @items.each do |item|
+              .mypage__item__list__box
+                =link_to item_path(item.id) do
+                  =image_tag item.item_imgs[0].src.url, size: "220x170"
+                  .content__list__name
+                    = item.name
+                  .content__list__price
+                    = "#{item.price}円（税込）"
+                  -if item.buyer.present?
+                    .content__list__frame
+                      .content__list__sold
+                        SOLD
+        -else
+          %b.search__title 全商品
+          %span.search__result の検索結果
+          .mypage__item__list
+            - @items.each do |item|
+              .mypage__item__list__box
+                =link_to item_path(item.id) do
+                  =image_tag item.item_imgs[0].src.url, size: "220x170"
+                  .content__list__name
+                    = item.name
+                  .content__list__price
+                    = "#{item.price}円（税込）"
+                  -if item.buyer.present?
+                    .content__list__frame
+                      .content__list__sold
+                        SOLD
+= render partial: "render/footer"
+

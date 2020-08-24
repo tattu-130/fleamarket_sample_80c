@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :user_image, ImageUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -16,6 +17,8 @@ class User < ApplicationRecord
   validates :birth_day, presence: true
   
   has_many :items
+  has_many :favorites, dependent: :destroy
+  has_many :fav_items, through: :favorites, source: :item
   # belongs_to :destination, optional: true
   has_one :destination
   belongs_to :card
