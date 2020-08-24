@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       post 'detail_search'
     end
   end
-  resources :users, only: [:index, :show] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resources :destinations, only: [:new, :create, :destroy]
     resources :items, only: :new 
   end
