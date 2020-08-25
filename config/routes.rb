@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  devise_scope :user do
+    get 'destination', to: 'users/registrations#new_destination'
+    post 'destination', to: 'users/registrations#create_destination'
+  end
   root 'items#index'
   resources :items, except: :new do
     collection do

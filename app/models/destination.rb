@@ -9,5 +9,5 @@ class Destination < ApplicationRecord
   validates :city, presence: true
   validates :address, presence: true
 
-  belongs_to :user
+  belongs_to :user, optional: true
 end
