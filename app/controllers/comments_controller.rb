@@ -7,14 +7,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
-      redirect_to "/items/#{@item.id}", notice: 'コメントが送信されました'
-    else
-      @comments = @item.comments.includes(:user)
-      flash.now[:alert] = 'コメントを入力してください。'
-      render :index
-    end
+    @comment = Comment.create(comment_params)
+    redirect_to "/items/#{@item.id}", notice: 'コメントが送信されました'
   end
 
   private
