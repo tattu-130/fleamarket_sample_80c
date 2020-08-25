@@ -4,7 +4,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
-    if user_signed_in? && @item.user_id != current_user.id && @item.buyer == 0
+    if user_signed_in? && @item.user_id != current_user.id && @item.buyer.blank?
       if @card.blank?
         redirect_to controller: "cards", action: "new"
       else
@@ -15,7 +15,7 @@ class PurchaseController < ApplicationController
         @default_card_information = customer.cards.retrieve(@card.card_id)
       end
     else
-      redirect_to new_user_session_path
+      redirect_to item_path(@item.id), alert: "既に購入されています"
     end
   end
 
