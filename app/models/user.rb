@@ -22,4 +22,5 @@ class User < ApplicationRecord
   # belongs_to :destination, optional: true
   has_one :destination
   has_one :card
+  has_many :comments, dependent: :destroy
 end

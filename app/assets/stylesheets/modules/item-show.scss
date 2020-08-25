@@ -133,11 +133,82 @@
     }
   }
   .commentBox {
-    background-color: #ffffff;
+    background-color: #fff;
     width: 700px;
-    height: 300px;
     margin: 10px auto 0;
     text-align: center;
+    .commentList {
+      .commentBody {
+        display: block;
+        .commentUserName {
+          text-align: left;
+          padding: 10px 0 5px 30px;
+          display: flex;
+          .seller {
+            color: rgb(221, 22, 22);
+            font-size: 12px;
+            padding-left: 5px;
+          }
+        }
+        .comment {
+          font-size: 14px;
+          background-color: #eef0f4;
+          padding: 12px;
+          margin: 0 auto;
+          width: 600px;
+          border-radius: 15px;
+          line-height: 1.5;
+          text-align: left;
+          .commentTime {
+            font-size: 11px;
+            color: #aaa;
+            padding-top: 5px;
+          }
+        }
+      }
+    }
+    .commentForm {
+      height: 256px;
+      width: 652px;
+      display: block;
+      margin: 0 auto;
+      padding: 24px;
+      .inputComment {
+        width: 100%;
+        min-height: 104px;
+        
+      }
+      .noticeMsg {
+        height: 50px;
+        margin: 10px 0;
+        padding: 8px;
+        text-align: left;
+        font-size: 14px;
+        background-color: #fff6de;
+      }
+      .commentBtn {
+        height: 48px;
+        background-color: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+        width: 60%;
+        font-size: 18px;
+        margin: 0 auto;
+        border-radius: 100px;
+      }
+      .commentBtnNotSignIn {
+        font-size: 18px;
+        line-height: 48px;
+        width: 80%;
+        display: block;
+        margin: 16px auto;
+        background-color: rgb(49, 197, 62);
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 100px;
+      }
+    }
   }
 }
-
