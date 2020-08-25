@@ -29,6 +29,7 @@
     padding: 8px;
     width: 35px;
     height: 35px;
+    // background-image: url("icon/icon-search_1.png");
   }
 }
 .header__down {
@@ -263,8 +264,14 @@
   display: flex;
   justify-content: center;
   &__box {
+    box-shadow: 10px 10px lightgrey;
+    border-radius: 10px;
     background-color: white;
     height: 260px;
+    margin-left: 25px;
+  }
+  &__image {
+    border-radius: 10px 10px 0 0;
   }
   &__name {
     color: black;
