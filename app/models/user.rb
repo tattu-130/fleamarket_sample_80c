@@ -21,4 +21,5 @@ class User < ApplicationRecord
   has_many :fav_items, through: :favorites, source: :item
   # belongs_to :destination, optional: true
   has_one :destination
+  has_many :comments, dependent: :destroy
 end
