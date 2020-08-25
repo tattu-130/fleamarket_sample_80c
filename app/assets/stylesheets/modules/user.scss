@@ -48,6 +48,9 @@
     }
   }
 }
+.AccountPage_newPage--height {
+  padding-bottom: 100px;
+}
 
 .AccountPage__form {
   width: 50%;
@@ -95,6 +98,7 @@
 }
 
 .Button {
+  width: 100%;
   display: inline-block;
   height: 50px;
   padding: 0 30px;
@@ -110,7 +114,22 @@
 }
 
 .UserButton {
+  width: 100%;
   background-color: #38aef0;
+}
+
+.snsButton{
+  margin-top: 10px;
+  width: 100%;
+}
+.snsButton--facebook {
+  background-color: #3b5998;
+  &--btnStyle {
+    color: white;
+  }
+}
+.snsButton--google {
+  background-color: #DB4437;
 }
 
 #error_explanation {

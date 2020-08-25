@@ -1,6 +1,6 @@
 - if controller_name != 'sessions'
   = link_to "Log in", new_session_path(resource_name), class: 'Button'
   %br/
-- if devise_mapping.registerable? && controller_name != 'registrations'
+- if devise_mapping.registerable? && controller_name != 'registrations' && controller_name != 'omniauth_callbacks'
   = link_to "新規登録する", new_registration_path(resource_name), class: 'Button'
   %br/

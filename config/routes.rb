@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
+  }
   root 'items#index'
   resources :items, except: :new do
     collection do
@@ -24,6 +27,7 @@ Rails.application.routes.draw do
       post 'detail_search'
     end
   end
+  resources :users, only: :new
   resources :users, only: [:index, :show, :edit, :update] do
     resources :destinations, only: [:new, :create, :destroy]
     resources :items, only: :new 

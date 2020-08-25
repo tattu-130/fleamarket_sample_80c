@@ -1,0 +1,18 @@
+.AccountContainer
+  = render 'devise/shared/header'
+  .AccountPage.AccountPage_newPage--height
+    .AccountPage__title
+      %h2 新規会員登録
+    .AccountPage__form
+      .actions
+        = link_to 'メールアドレスで登録', new_user_registration_path, class: "Button UserButton "
+        -# SNS認証
+        .Button.snsButton.snsButton--facebook
+          = link_to user_facebook_omniauth_authorize_path, method: :post, class: "snsButton--facebook--btnStyle" do
+            %i.fab.fa-facebook-f
+            facebookで登録
+        .Button.snsButton.snsButton--google
+          = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "snsButton--facebook--btnStyle" do
+            %i.fab.fa-google
+            Googleで登録
+  = render "devise/shared/footer"

@@ -19,5 +19,14 @@
               = f.password_field :password, placeholder: '7文字以上の半角英数字',  autocomplete: "off"
           .actions
             = f.submit "Log in", class: 'Button UserButton'
+            -# SNS認証
+            .Button.snsButton.snsButton--facebook
+              = link_to user_facebook_omniauth_authorize_path, method: :post, class: "snsButton--facebook--btnStyle" do
+                %i.fab.fa-facebook-f
+                facebookでログイン
+            .Button.snsButton.snsButton--google
+              = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "snsButton--facebook--btnStyle" do
+                %i.fab.fa-google
+                Googleでログイン
             = render "devise/shared/links"
   = render "devise/shared/footer"
