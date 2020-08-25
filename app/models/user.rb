@@ -21,5 +21,5 @@ class User < ApplicationRecord
   has_many :fav_items, through: :favorites, source: :item
   # belongs_to :destination, optional: true
   has_one :destination
-  belongs_to :card
+  has_one :card
 end
